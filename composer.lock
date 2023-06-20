@@ -8190,7 +8190,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/tray-labs/laravel-influxdb.git",
-                "reference": "e0dbca679f297ed5e4d791c429de03704ca2422b"
+                "reference": "1afd45aedc797036774ab316c8cec0b34e249b2f"
             },
             "require": {
                 "illuminate/support": "^5.0|^6.0|^7.0|^8.0",
