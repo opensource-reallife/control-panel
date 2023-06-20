@@ -73,14 +73,6 @@
             "options": {
                 "symlink": true
             }
-        },
-        {
-            "type": "git",
-            "url": "https://github.com/MegaThorx/laravel-influxdb.git"
-        },
-        {
-            "type": "git",
-            "url": "https://github.com/MegaThorx/mtasa-php-sdk.git"
         }
     ],
     "minimum-stability": "dev",
