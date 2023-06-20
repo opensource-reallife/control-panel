@@ -2309,7 +2309,7 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/MegaThorx/mtasa-php-sdk.git",
+                "url": "https://github.com/multitheftauto/mtasa-php-sdk.git",
                 "reference": "3a64b914917dc990b8dfbbb579e0bb2eeb3bd556"
             },
             "require": {
@@ -8189,7 +8189,7 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/MegaThorx/laravel-influxdb.git",
+                "url": "https://github.com/tray-labs/laravel-influxdb.git",
                 "reference": "e0dbca679f297ed5e4d791c429de03704ca2422b"
             },
             "require": {
