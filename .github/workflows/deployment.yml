@@ -28,6 +28,7 @@ jobs:
         name: Building Docker
         run: |
           apk update && apk add --no-cache docker git
+          git config --global --add safe.directory /__w/control-panel/control-panel
           git log --pretty="%H" -n1 HEAD > VERSION
           docker build -t rl-cp .
           docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }}
