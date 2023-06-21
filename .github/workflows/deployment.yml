@@ -8,7 +8,7 @@ on:
       - "feature/deployment"
 
 jobs:
-  prepare:
+  build:
     runs-on: ubuntu-latest
     container: lorisleiva/laravel-docker:8.0
     steps:
@@ -19,42 +19,15 @@ jobs:
         name: composer
         run: |
           composer install --no-dev --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts
-      -
-        name: cache vendor files
-        uses: actions/upload-artifact@v2
-        with:
-          name: vendor-artifact
-          path: vendor/
-          retention-days: 1
       - 
         name: npm
         run: |
           npm install
           npm run prod
       -
-        name: cache node files
-        uses: actions/upload-artifact@v2
-        with:
-          name: node-artifact
-          path: |
-            node_modules/
-            public/
-            app.js.map
-          retention-days: 1
-
-  build:
-    runs-on: ubuntu-latest
-    needs: prepare
-    steps:
-      -
-        name: Checkout
-        uses: actions/checkout@v3
-      - 
-        name: Retrieve artifacts
-        uses: actions/download-artifact@v2
-      -
         name: Building Docker
         run: |
+          apk update && apk add --no-cache docker git
           git log --pretty="%H" -n1 HEAD > VERSION
           docker build -t rl-cp .
           docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }}
@@ -62,8 +35,7 @@ jobs:
           [ "$GITHUB_REF_NAME" == "master" ] && DOCKERTAG=latest
           docker tag rl-cp ghcr.io/$GITHUB_REPOSITORY:$DOCKERTAG
           docker push ghcr.io/$GITHUB_REPOSITORY:$DOCKERTAG
-          docker rmi rl-cp        
-  
+          docker rmi rl-cp
   
   deploy-development:
     runs-on: ubuntu-latest
