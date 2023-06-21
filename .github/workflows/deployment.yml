@@ -19,11 +19,28 @@ jobs:
         name: composer
         run: |
           composer install --no-dev --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts
+      -
+        name: cache vendor files
+        uses: actions/upload-artifact@v2
+        with:
+          name: vendor-artifact
+          path: vendor/
+          retention-days: 1
       - 
         name: npm
         run: |
           npm install
           npm run prod
+      -
+        name: cache node files
+        uses: actions/upload-artifact@v2
+        with:
+          name: node-artifact
+          path: |
+            node_modules/
+            public/
+            app.js.map
+          retention-days: 1
 
   build:
     runs-on: ubuntu-latest
@@ -32,6 +49,9 @@ jobs:
       -
         name: Checkout
         uses: actions/checkout@v3
+      - 
+        name: Retrieve artifacts
+        uses: actions/download-artifact@v2
       -
         name: Building Docker
         run: |
