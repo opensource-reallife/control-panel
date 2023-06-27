@@ -1,5 +1,8 @@
 FROM alpine:latest
 
+# Add testing mirror for php8 mirror
+RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
+
 # Install packages
 RUN apk --update add --no-cache \
       tzdata \
