@@ -61,7 +61,7 @@
                                         </button>
                                     </div>
                                     <div class="col-6 text-right">
-                                        <a class="btn btn-link px-0" href="https://forum.exo-reallife.de/wsc/index.php?lost-password/">
+                                        <a class="btn btn-link px-0" href="https://forum.byflex.de/cms/index.php?lost-password/">
                                             {{ __('Passwort vergessen?') }}
                                         </a>
                                     </div>

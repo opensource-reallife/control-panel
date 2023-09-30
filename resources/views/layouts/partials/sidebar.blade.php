@@ -7,7 +7,7 @@
     </div>
     <ul class="c-sidebar-nav" data-drodpown-accordion="true">
         <li class="c-sidebar-nav-item">
-            <a class="c-sidebar-nav-link" href="https://forum.exo-reallife.de">
+            <a class="c-sidebar-nav-link" href="https://forum.byflex.de/">
                 <i class="c-sidebar-nav-icon fas fa-comments"></i>{{ __('Forum') }}
             </a>
         </li>
