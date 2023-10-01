@@ -34,7 +34,7 @@ class DashboardController extends Controller
 
 
         //$playerCount = InfluxDB::query('select mean("loggedIn") from user_total WHERE ("branch" = \'release/production\') AND time > now() - 1d GROUP BY time(1h)');
-        $points = $playerCount->getPoints();
+        //$points = $playerCount->getPoints();
 
         $playerCountData = ['datasets' => [['data' => [], 'backgroundColor' => 'transparent', 'borderColor' => 'rgba(255,255,255,.55)', 'pointBackgroundColor' => '#39f']], 'labels' => []];
         $lastPlayerCount = 0;
