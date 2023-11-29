@@ -44,7 +44,7 @@ export default class Vehicle extends Component {
             let map = <></>;
 
             if(this.state.data.PosX) {
-                map = <img src={'https://exo-reallife.de/images/map.php?x=' + this.state.data.PosX + '&y=' + this.state.data.PosY + '&height=180&width=200'} />
+                map = <img src={'https://cp.openreallife.net/images/map.php?x=' + this.state.data.PosX + '&y=' + this.state.data.PosY + '&height=180&width=200'} />
             }
 
             if(this.state.data.Tunings) {
@@ -82,7 +82,7 @@ export default class Vehicle extends Component {
                                     {tunings}
                                 </div>
                                 <div className="col-md-6">
-                                    <img className="mb-2" src={'https://exo-reallife.de/images/veh/Vehicle_' + this.props.model + '.jpg'} />
+                                    <img className="mb-2" src={'https://ingame.openreallife.net/images/veh/Vehicle_' + this.props.model + '.jpg'} />
                                     {map}
                                 </div>
                             </div>
@@ -104,7 +104,7 @@ export default class Vehicle extends Component {
                     }
                     {this.props.premium > 0 && this.props.premiumOwner ? <span className="image-badge-left-bottom image-badge-success">{this.props.premiumOwner}</span> : <></>}
 
-                    <img className="bd-placeholder-img card-img-top" src={'https://exo-reallife.de/images/veh/Vehicle_' + this.props.model + '.jpg'} />
+                    <img className="bd-placeholder-img card-img-top" src={'https://ingame.openreallife.net/images/veh/Vehicle_' + this.props.model + '.jpg'} />
 
                     <div className="card-body">
                         <div className="card-title d-flex justify-content-between align-items-start">

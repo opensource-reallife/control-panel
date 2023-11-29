@@ -66,7 +66,7 @@ class TeamSpeakSetActivatedGroup extends Command
                     }
                 }
 
-                $client->client->setDescription('https://cp.exo-reallife.de/users/' . $identity->UserId);
+                $client->client->setDescription('https://cp.openreallife.net/users/' . $identity->UserId);
             } catch (TeamSpeakUnreachableException $e) {
             }
         }

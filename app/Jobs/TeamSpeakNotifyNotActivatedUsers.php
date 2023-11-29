@@ -47,7 +47,7 @@ class TeamSpeakNotifyNotActivatedUsers implements ShouldQueue
                                 PHP_EOL .
                                 'Bitte schreib im Control Panel eine Freischaltung für deine TeamSpeak Identität.'. PHP_EOL .
                                 'Deine Eindeutige ID ist: ' . $client->uniqueId . PHP_EOL .
-                                'https://cp.exo-reallife.de/tickets/create?category=3&fields_7=' . $client->uniqueId . PHP_EOL
+                                'https://cp.openreallife.net/tickets/create?category=3&fields_7=' . $client->uniqueId . PHP_EOL
                             );
                         }
                     }

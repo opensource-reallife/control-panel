@@ -45,7 +45,7 @@ class CleanupInvalidTextures extends Command
 
         foreach($textures as $texture) {
             $this->info("Checking texture {$texture->Name}");
-            $fileName = str_replace('https://cp.exo-reallife.de/storage/textures/', '', $texture->Image);
+            $fileName = str_replace('https://cp.openreallife.net/storage/textures/', '', $texture->Image);
             $fileName = str_replace('http://localhost:8000/storage/textures/', '', $fileName);
 
 

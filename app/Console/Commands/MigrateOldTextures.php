@@ -47,7 +47,7 @@ class MigrateOldTextures extends Command
 
         foreach($textures as $texture) {
             $this->info("Downloading texture {$texture->OldImage}");
-            $fileName = str_replace('https://cp.exo-reallife.de/storage/textures/', '', $texture->Image);
+            $fileName = str_replace('https://cp.openreallife.net/storage/textures/', '', $texture->Image);
             $fileName = str_replace('http://localhost:8000/storage/textures/', '', $fileName);
 
 

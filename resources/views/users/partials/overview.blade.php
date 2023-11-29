@@ -1,6 +1,6 @@
 <div class="row">
     <div class="" style="height: 270px; width: 134px; padding-right: 15px; padding-left: 15px; position: relative;">
-        <div class="card" style="height: 270px; width: 104px; background-image: url('https://exo-reallife.de/images/skins/Skin{{ $user->character->Skin }}.jpg'); background-repeat: no-repeat; background-size: cover; background-position-x: center">
+        <div class="card" style="height: 270px; width: 104px; background-image: url('https://ingame.openreallife.net/images/skins/Skin{{ $user->character->Skin }}.jpg'); background-repeat: no-repeat; background-size: cover; background-position-x: center">
 
         </div>
     </div>

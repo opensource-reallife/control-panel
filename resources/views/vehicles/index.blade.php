@@ -18,7 +18,7 @@
                         <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
                             <div class="card">
                                 @if(!$vehicle->IsInShop)<span class="image-badge-right image-badge-info">{{ __('Selten') }}</span>@endif
-                                <img class="bd-placeholder-img card-img-top" src="https://exo-reallife.de/images/veh/Vehicle_{{ $vehicle->Id }}.jpg">
+                                <img class="bd-placeholder-img card-img-top" src="https://ingame.openreallife.net/images/veh/Vehicle_{{ $vehicle->Id }}.jpg">
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-12 d-flex justify-content-between align-items-center">

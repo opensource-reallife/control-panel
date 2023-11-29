@@ -78,7 +78,7 @@ class MigrateVehicleTextures extends Command
                         $value = '';
                         $updated = true;
                     }
-                } else if (str_starts_with($value, 'https://cp.exo-reallife.de')) {
+                } else if (str_starts_with($value, 'https://cp.openreallife.net')) {
                     $texture = $textures->firstWhere('Image', $value);
 
                     if ($texture === null) {
@@ -100,7 +100,7 @@ class MigrateVehicleTextures extends Command
 
             /*
             $this->info("Downloading texture {$texture->OldImage}");
-            $fileName = str_replace('https://cp.exo-reallife.de/storage/textures/', '', $texture->Image);
+            $fileName = str_replace('https://cp.openreallife.net/storage/textures/', '', $texture->Image);
             $fileName = str_replace('http://localhost:8000/storage/textures/', '', $fileName);
 
 

@@ -35,7 +35,7 @@
                                             @if ($texture->Model)
                                                 <td>
                                                     <h4>@vehicleName($texture->Model)</h4>
-                                                    <img class="img-fluid rounded" src="https://exo-reallife.de/images/veh/Vehicle_{{ $texture->Model }}.jpg">
+                                                    <img class="img-fluid rounded" src="https://ingame.openreallife.net/images/veh/Vehicle_{{ $texture->Model }}.jpg">
                                                 </td>
                                             @else
                                                 <td>Alle</td>
