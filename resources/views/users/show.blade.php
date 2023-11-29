@@ -17,7 +17,7 @@
                 <div>
                     @auth
                         @if(auth()->user()->Rank >= 3)
-                            <a class="btn btn-primary" href="{{ 'https://exo-reallife.de/index.php?page=admin&f=spieler&id=' . $user->Id }}">{{ __('Altes CP') }}</a>
+                            <a class="btn btn-primary" href="{{ 'https://ingame.openreallife.net/index.php?page=admin&f=spieler&id=' . $user->Id }}">{{ __('Altes CP') }}</a>
 
                             <div class="btn-group" role="group">
                                 <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

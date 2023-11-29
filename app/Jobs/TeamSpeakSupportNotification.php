@@ -91,9 +91,9 @@ class TeamSpeakSupportNotification implements ShouldQueue
 
                             $lines = [
                                 __(':name wartet schon seit :duration im Support!', ['name' => $support[$client->databaseId]['name'], 'duration' => $duration]),
-                                'Ticket: https://cp.exo-reallife.de/tickets/create?category=' . env('TEAMSPEAK_SUPPORT_TICKET_CATEGORY') . '&createFor=' . $support[$client->databaseId]['id'],
+                                'Ticket: https://cp.openreallife.net/tickets/create?category=' . env('TEAMSPEAK_SUPPORT_TICKET_CATEGORY') . '&createFor=' . $support[$client->databaseId]['id'],
                                 'User: [URL=client://' . $client->id . '/' . $client->uniqueId . '~' . str_replace(' ', '%20', $client->nickname) .']' . $support[$client->databaseId]['name'] .'[/URL]',
-                                'CP: https://cp.exo-reallife.de/users/' . $support[$client->databaseId]['id'],
+                                'CP: https://cp.openreallife.net/users/' . $support[$client->databaseId]['id'],
                             ];
 
                             foreach($admins as $admin) {
@@ -126,9 +126,9 @@ class TeamSpeakSupportNotification implements ShouldQueue
 
                         $lines = [
                             __(':name wartet im Support!', ['name' => $support[$client->databaseId]['name']]),
-                            'Ticket: https://cp.exo-reallife.de/tickets/create?category=' . env('TEAMSPEAK_SUPPORT_TICKET_CATEGORY') . '&createFor=' . $support[$client->databaseId]['id'],
+                            'Ticket: https://cp.openreallife.net/tickets/create?category=' . env('TEAMSPEAK_SUPPORT_TICKET_CATEGORY') . '&createFor=' . $support[$client->databaseId]['id'],
                             'User: [URL=client://' . $client->id . '/' . $client->uniqueId . '~' . $client->nickname .']' . $support[$client->databaseId]['name'] .'[/URL]',
-                            'CP: https://cp.exo-reallife.de/users/' . $support[$client->databaseId]['id'],
+                            'CP: https://cp.openreallife.net/users/' . $support[$client->databaseId]['id'],
                         ];
 
                         foreach($admins as $admin) {
@@ -139,7 +139,7 @@ class TeamSpeakSupportNotification implements ShouldQueue
                         $mtaService = new MTAService();
                         $mtaService->sendMessage('admin', null, __('[TEAMSPEAK] :name wartet im Support!', ['name' => $support[$client->databaseId]['name']]), ['r' => 255, 'g' => 50, 'b' => 0, 'minRank' => 1]);
 
-                        $client->message(__('Ein Teammitglied wurde verständigt und wird sich in Kürze bei dir melden. Alternativ kannst du auch ein Ticket erstellen. https://cp.exo-reallife.de/tickets/create'));
+                        $client->message(__('Ein Teammitglied wurde verständigt und wird sich in Kürze bei dir melden. Alternativ kannst du auch ein Ticket erstellen. https://cp.openreallife.net/tickets/create'));
                     }
                 }
 

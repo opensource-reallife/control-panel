@@ -54,7 +54,7 @@ class PayPalService
                         new Item(['name' => 'eXo-Dollar', 'currency' => 'EUR', 'quantity' => $amount, 'price' => 1])
                     ]
                 ]),
-                'description' => 'fuer exo-reallife.de',
+                'description' => 'fuer openreallife.net',
                 'notify_url' => route('api.shop.payment.notification.paypal')
             ])]
         ]);
