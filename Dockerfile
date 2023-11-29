@@ -1,7 +1,7 @@
 FROM alpine:latest
 
 # Add testing mirror for php8 mirror
-RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
+RUN echo "https://dl-cdn.alpinelinux.org/alpine/v3.16/community/" >> /etc/apk/repositories
 
 # Install packages
 RUN apk --update add --no-cache \
@@ -17,36 +17,36 @@ RUN apk --update add --no-cache \
       libpng-dev \
       nodejs \
       git \
-      php81 \
-      php81-dom \
-      php81-fpm \
-      php81-mbstring \
-      php81-opcache \
-      php81-pdo \
-      php81-pdo_mysql \
-      php81-pdo_pgsql \
-      php81-pdo_sqlite \
-      php81-xml \
-      php81-phar \
-      php81-openssl \
-      php81-json \
-      php81-curl \
-      php81-ctype \
-      php81-session \
-      php81-gd \
-      php81-zlib \
-      php81-tokenizer \
-      php81-bcmath \
-      php81-redis \
-      php81-fileinfo \
+      php8 \
+      php8-dom \
+      php8-fpm \
+      php8-mbstring \
+      php8-opcache \
+      php8-pdo \
+      php8-pdo_mysql \
+      php8-pdo_pgsql \
+      php8-pdo_sqlite \
+      php8-xml \
+      php8-phar \
+      php8-openssl \
+      php8-json \
+      php8-curl \
+      php8-ctype \
+      php8-session \
+      php8-gd \
+      php8-zlib \
+      php8-tokenizer \
+      php8-bcmath \
+      php8-redis \
+      php8-fileinfo \
       nodejs \
       npm \
     && rm -rf /var/cache/apk/* && \
     addgroup -g 1000 -S app && \
     adduser -u 1000 -S app -G app && \
     mkdir /var/log/websockets && \
-    touch /var/log/php81/stdout.log && \
-    touch /var/log/php81/stderr.log && \
+    touch /var/log/php8/stdout.log && \
+    touch /var/log/php8/stderr.log && \
     touch /var/log/nginx/stdout.log && \
     touch /var/log/nginx/stderr.log && \
     touch /var/log/websockets/stdout.log && \
@@ -61,8 +61,8 @@ RUN cp /usr/share/zoneinfo/Europe/Vienna /etc/localtime && \
 COPY build/nginx.conf /etc/nginx/nginx.conf
 
 # Configure PHP-FPM
-COPY build/fpm-pool.conf /etc/php81/php-fpm.d/www.conf
-COPY build/php.ini /etc/php81/conf.d/zzz_custom.ini
+COPY build/fpm-pool.conf /etc/php8/php-fpm.d/www.conf
+COPY build/php.ini /etc/php8/conf.d/zzz_custom.ini
 
 # Configure cron
 COPY build/crontab /etc/cron/crontab
@@ -91,8 +91,8 @@ COPY --chown=app:app . /var/www
 # Switch to use a non-root user from here on
 USER 1000
 
-RUN php81 artisan storage:link && \
-    php81 artisan cache:clear && \
+RUN php8 artisan storage:link && \
+    php8 artisan cache:clear && \
     rm public/js/app.js.map
 
 USER 0
