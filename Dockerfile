@@ -45,8 +45,8 @@ RUN apk --update add --no-cache \
     addgroup -g 1000 -S app && \
     adduser -u 1000 -S app -G app && \
     mkdir /var/log/websockets && \
-    touch /var/log/php8/stdout.log && \
-    touch /var/log/php8/stderr.log && \
+    touch /var/log/php81/stdout.log && \
+    touch /var/log/php81/stderr.log && \
     touch /var/log/nginx/stdout.log && \
     touch /var/log/nginx/stderr.log && \
     touch /var/log/websockets/stdout.log && \
@@ -61,8 +61,8 @@ RUN cp /usr/share/zoneinfo/Europe/Vienna /etc/localtime && \
 COPY build/nginx.conf /etc/nginx/nginx.conf
 
 # Configure PHP-FPM
-COPY build/fpm-pool.conf /etc/php8/php-fpm.d/www.conf
-COPY build/php.ini /etc/php8/conf.d/zzz_custom.ini
+COPY build/fpm-pool.conf /etc/php81/php-fpm.d/www.conf
+COPY build/php.ini /etc/php81/conf.d/zzz_custom.ini
 
 # Configure cron
 COPY build/crontab /etc/cron/crontab
@@ -91,8 +91,8 @@ COPY --chown=app:app . /var/www
 # Switch to use a non-root user from here on
 USER 1000
 
-RUN php82 artisan storage:link && \
-    php82 artisan cache:clear && \
+RUN php81 artisan storage:link && \
+    php81 artisan cache:clear && \
     rm public/js/app.js.map
 
 USER 0
