@@ -17,28 +17,28 @@ RUN apk --update add --no-cache \
       libpng-dev \
       nodejs \
       git \
-      php8 \
-      php8-dom \
-      php8-fpm \
-      php8-mbstring \
-      php8-opcache \
-      php8-pdo \
-      php8-pdo_mysql \
-      php8-pdo_pgsql \
-      php8-pdo_sqlite \
-      php8-xml \
-      php8-phar \
-      php8-openssl \
-      php8-json \
-      php8-curl \
-      php8-ctype \
-      php8-session \
-      php8-gd \
-      php8-zlib \
-      php8-tokenizer \
-      php8-bcmath \
-      php8-redis \
-      php8-fileinfo \
+      php82 \
+      php82-dom \
+      php82-fpm \
+      php82-mbstring \
+      php82-opcache \
+      php82-pdo \
+      php82-pdo_mysql \
+      php82-pdo_pgsql \
+      php82-pdo_sqlite \
+      php82-xml \
+      php82-phar \
+      php82-openssl \
+      php82-json \
+      php82-curl \
+      php82-ctype \
+      php82-session \
+      php82-gd \
+      php82-zlib \
+      php82-tokenizer \
+      php82-bcmath \
+      php82-redis \
+      php82-fileinfo \
       nodejs \
       npm \
     && rm -rf /var/cache/apk/* && \
@@ -91,8 +91,8 @@ COPY --chown=app:app . /var/www
 # Switch to use a non-root user from here on
 USER 1000
 
-RUN php8 artisan storage:link && \
-    php8 artisan cache:clear && \
+RUN php82 artisan storage:link && \
+    php82 artisan cache:clear && \
     rm public/js/app.js.map
 
 USER 0
