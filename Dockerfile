@@ -17,28 +17,28 @@ RUN apk --update add --no-cache \
       libpng-dev \
       nodejs \
       git \
-      php82 \
-      php82-dom \
-      php82-fpm \
-      php82-mbstring \
-      php82-opcache \
-      php82-pdo \
-      php82-pdo_mysql \
-      php82-pdo_pgsql \
-      php82-pdo_sqlite \
-      php82-xml \
-      php82-phar \
-      php82-openssl \
-      php82-json \
-      php82-curl \
-      php82-ctype \
-      php82-session \
-      php82-gd \
-      php82-zlib \
-      php82-tokenizer \
-      php82-bcmath \
-      php82-redis \
-      php82-fileinfo \
+      php81 \
+      php81-dom \
+      php81-fpm \
+      php81-mbstring \
+      php81-opcache \
+      php81-pdo \
+      php81-pdo_mysql \
+      php81-pdo_pgsql \
+      php81-pdo_sqlite \
+      php81-xml \
+      php81-phar \
+      php81-openssl \
+      php81-json \
+      php81-curl \
+      php81-ctype \
+      php81-session \
+      php81-gd \
+      php81-zlib \
+      php81-tokenizer \
+      php81-bcmath \
+      php81-redis \
+      php81-fileinfo \
       nodejs \
       npm \
     && rm -rf /var/cache/apk/* && \
