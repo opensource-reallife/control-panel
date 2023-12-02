@@ -119,9 +119,9 @@
                         <li class="c-sidebar-nav-item">
                             <a class="c-sidebar-nav-link" href="{{ route('admin.texture') }}"><span class="c-sidebar-nav-icon fas fa-images"></span>Texturen</a>
                         </li>
-                        <!-- <li class="c-sidebar-nav-item">
+                        <li class="c-sidebar-nav-item">
                             <a class="c-sidebar-nav-link" href="{{ route('admin.teamspeak.index') }}"><span class="c-sidebar-nav-icon fab fa-teamspeak"></span>Teamspeak</a>
-                        </li> -->
+                        </li>
                         <li class="c-sidebar-nav-item">
                             <a class="c-sidebar-nav-link" href="{{ route('admin.logs.show') }}"><span class="c-sidebar-nav-icon fas fa-file-alt"></span>Logs</a>
                         </li>
@@ -148,10 +148,10 @@
                                 <a class="c-sidebar-nav-link" href="{{ route('admin.maps.index') }}"><span class="c-sidebar-nav-icon fas fa-map"></span>Maps</a>
                             </li>
                         @endif
-                        <!-- @if(auth()->user()->Rank >= 7)
+                        @if(auth()->user()->Rank >= 7)
                             <li class="c-sidebar-nav-item">
-                                <a class="c-sidebar-nav-link" href="https://pma.exo.cool"><span class="c-sidebar-nav-icon fas fa-database"></span>phpMyAdmin</a>
-                            </li> -->
+                                <a class="c-sidebar-nav-link" href=""><span class="c-sidebar-nav-icon fas fa-database"></span>phpMyAdmin</a>
+                            </li>
                         @endif
                     </ul>
                 </li>
