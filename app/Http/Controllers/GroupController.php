@@ -37,7 +37,6 @@ class GroupController extends Controller
 
         if(!auth()->user() || auth()->user()->Rank < 7) {
             $groups->where('Id', '<>', 1);
-            $groups->where('Id', '<>', 2);
         }
         $groups->withCount('members');
 
