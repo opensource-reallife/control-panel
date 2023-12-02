@@ -47,6 +47,6 @@ class DashboardController extends Controller
         $invites = PlayerHistory::orderBy('JoinDate', 'DESC')->with('user', 'inviter')->limit(10)->get();
         $uninvites = PlayerHistory::orderBy('LeaveDate', 'DESC')->with('user', 'uninviter')->limit(10)->get();
 
-        return view('admin.dashboard.index', compact('textures', 'tickets', 'totalTickets', 'playerCountData', 'lastPlayerCount', 'invites', 'uninvites'));
+        return view('admin.dashboard.index', compact('textures', 'tickets', 'totalTickets', 'invites', 'uninvites'));
     }
 }
