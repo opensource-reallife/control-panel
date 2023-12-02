@@ -151,8 +151,8 @@
                         <!-- @if(auth()->user()->Rank >= 7)
                             <li class="c-sidebar-nav-item">
                                 <a class="c-sidebar-nav-link" href="https://pma.exo.cool"><span class="c-sidebar-nav-icon fas fa-database"></span>phpMyAdmin</a>
-                            </li>
-                        @endif -->
+                            </li> -->
+                        @endif
                     </ul>
                 </li>
             @endif
