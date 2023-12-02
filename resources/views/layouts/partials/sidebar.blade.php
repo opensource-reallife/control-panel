@@ -51,8 +51,13 @@
                 <i class="c-sidebar-nav-icon fas fa-list-ol"></i>{{ __('Statistiken') }}
             </a>
         </li>
-        <li class="c-sidebar-nav-item">
+        <!-- <li class="c-sidebar-nav-item">
             <a class="c-sidebar-nav-link" href="{{ route('commits') }}">
+                <i class="c-sidebar-nav-icon fas fa-code-branch"></i>{{ __('Commits') }}
+            </a>
+        </li> -->
+        <li class="c-sidebar-nav-item">
+            <a class="c-sidebar-nav-link" href="https://github.com/opensource-reallife/mta-gamemode/commits/release/production">
                 <i class="c-sidebar-nav-icon fas fa-code-branch"></i>{{ __('Commits') }}
             </a>
         </li>
@@ -66,7 +71,7 @@
                 <i class="c-sidebar-nav-icon fas fa-images"></i>{{ __('Texturen') }}
             </a>
         </li>
-        @auth
+        <!-- @auth
             @if(auth()->user()->Rank >= 5 || count(auth()->user()->character->getTrainingTargets()) > 0)
         <li class="c-sidebar-nav-dropdown">
             <a class="c-sidebar-nav-dropdown-toggle" href="#">
@@ -97,7 +102,7 @@
             @endif
         </li>
             @endif
-        @endauth
+        @endauth -->
         @auth
             @if(auth()->user()->Rank >= 3)
                 <li class="c-sidebar-nav-dropdown">
@@ -114,9 +119,9 @@
                         <li class="c-sidebar-nav-item">
                             <a class="c-sidebar-nav-link" href="{{ route('admin.texture') }}"><span class="c-sidebar-nav-icon fas fa-images"></span>Texturen</a>
                         </li>
-                        <li class="c-sidebar-nav-item">
+                        <!-- <li class="c-sidebar-nav-item">
                             <a class="c-sidebar-nav-link" href="{{ route('admin.teamspeak.index') }}"><span class="c-sidebar-nav-icon fab fa-teamspeak"></span>Teamspeak</a>
-                        </li>
+                        </li> -->
                         <li class="c-sidebar-nav-item">
                             <a class="c-sidebar-nav-link" href="{{ route('admin.logs.show') }}"><span class="c-sidebar-nav-icon fas fa-file-alt"></span>Logs</a>
                         </li>
@@ -143,11 +148,11 @@
                                 <a class="c-sidebar-nav-link" href="{{ route('admin.maps.index') }}"><span class="c-sidebar-nav-icon fas fa-map"></span>Maps</a>
                             </li>
                         @endif
-                        @if(auth()->user()->Rank >= 7)
+                        <!-- @if(auth()->user()->Rank >= 7)
                             <li class="c-sidebar-nav-item">
                                 <a class="c-sidebar-nav-link" href="https://pma.exo.cool"><span class="c-sidebar-nav-icon fas fa-database"></span>phpMyAdmin</a>
                             </li>
-                        @endif
+                        @endif -->
                     </ul>
                 </li>
             @endif
