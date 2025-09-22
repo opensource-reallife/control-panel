@@ -66,7 +66,7 @@
                 <i class="c-sidebar-nav-icon fas fa-images"></i>{{ __('Texturen') }}
             </a>
         </li>
-        @auth
+         <!-- @auth
             @if(auth()->user()->Rank >= 5 || count(auth()->user()->character->getTrainingTargets()) > 0)
         <li class="c-sidebar-nav-dropdown">
             <a class="c-sidebar-nav-dropdown-toggle" href="#">
@@ -97,7 +97,7 @@
             @endif
         </li>
             @endif
-        @endauth
+        @endauth -->
         @auth
             @if(auth()->user()->Rank >= 3)
                 <li class="c-sidebar-nav-dropdown">
