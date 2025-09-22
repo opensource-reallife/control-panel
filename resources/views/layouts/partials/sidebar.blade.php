@@ -123,9 +123,9 @@
                         <li class="c-sidebar-nav-item">
                             <a class="c-sidebar-nav-link" href="{{ route('admin.bans.index') }}"><span class="c-sidebar-nav-icon fas fa-ban"></span>{{ __('Bans') }}</a>
                         </li>
-                        <li class="c-sidebar-nav-item">
+                        <!-- <li class="c-sidebar-nav-item">
                             <a class="c-sidebar-nav-link" href="{{ route('admin.ip-hub.index') }}"><span class="c-sidebar-nav-icon fas fa-network-wired"></span>{{ __('IP Hub') }}</a>
-                        </li>
+                        </li> -->
                         <li class="c-sidebar-nav-item">
                             <a class="c-sidebar-nav-link" href="{{ route('admin.houses.index') }}"><span class="c-sidebar-nav-icon fas fa-home"></span>{{ __('Häuser') }}</a>
                         </li>
@@ -143,11 +143,11 @@
                                 <a class="c-sidebar-nav-link" href="{{ route('admin.maps.index') }}"><span class="c-sidebar-nav-icon fas fa-map"></span>Maps</a>
                             </li>
                         @endif
-                        @if(auth()->user()->Rank >= 7)
+                        <!-- @if(auth()->user()->Rank >= 7)
                             <li class="c-sidebar-nav-item">
                                 <a class="c-sidebar-nav-link" href="https://pma.exo.cool"><span class="c-sidebar-nav-icon fas fa-database"></span>phpMyAdmin</a>
                             </li>
-                        @endif
+                        @endif -->
                     </ul>
                 </li>
             @endif
