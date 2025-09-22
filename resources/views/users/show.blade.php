@@ -100,7 +100,7 @@
     </div>
 @endsection
 
-@section('script'))
+@section('script')
     <script>
         document.querySelectorAll('[data-toggle="tooltip"]').forEach(function (element) {
             // eslint-disable-next-line no-new
