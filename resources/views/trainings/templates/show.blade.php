@@ -1,4 +1,4 @@
-@extends('layouts.app')
+<!-- @extends('layouts.app')
 
 @section('title', $template->Name . ' - ' . __('Vorlagen') . ' - ' . __('Schulungen'))
 
