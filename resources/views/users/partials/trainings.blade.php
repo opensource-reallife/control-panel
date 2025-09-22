@@ -1,4 +1,4 @@
-@section('title', __('Schulungen') . ' - '. $user->Name)
+<!-- @section('title', __('Schulungen') . ' - '. $user->Name)
 @can('trainings', $user)
     @php
         $trainings = \App\Models\Training\TrainingUser::query()->where('UserId', $user->Id)->where('Role', 0)->with('training')->with('training.user')->orderBy('CreatedAt', 'DESC')->get();

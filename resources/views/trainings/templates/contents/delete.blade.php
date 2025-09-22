@@ -1,4 +1,4 @@
-@extends('layouts.app')
+<!-- @extends('layouts.app')
 
 @section('title', $content->Name . ' ' . __('löschen') . ' - ' . __('Inhalte') . ' - ' . __('Vorlagen') .' - ' . __('Schulungen'))
 
