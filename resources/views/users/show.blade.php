@@ -65,8 +65,8 @@
                 <ul class="nav nav-pills" role="tablist">
                     <li class="nav-item"><a class="nav-link @if($page === ''){{'active'}}@endif" href="{{ route('users.show', [$user->Id]) }}">{{ __('Übersicht') }}</a></li>
                     @can('vehicles', $user)<li class="nav-item"><a class="nav-link @if($page === 'vehicles'){{'active'}}@endif" href="{{ route('users.show.page', [$user->Id, 'vehicles']) }}">{{ __('Fahrzeuge') }}</a></li>@endcan
-                    @can('teamspeak', $user)<li class="nav-item"><a class="nav-link @if($page === 'teamspeak'){{'active'}}@endif" href="{{ route('users.show.page', [$user->Id, 'teamspeak']) }}">{{ __('TeamSpeak') }}</a></li>@endcan
-                    @can('trainings', $user)<li class="nav-item"><a class="nav-link @if($page === 'trainings'){{'active'}}@endif" href="{{ route('users.show.page', [$user->Id, 'trainings']) }}">{{ __('Schulungen') }}</a></li>@endcan
+                    <!-- @can('teamspeak', $user)<li class="nav-item"><a class="nav-link @if($page === 'teamspeak'){{'active'}}@endif" href="{{ route('users.show.page', [$user->Id, 'teamspeak']) }}">{{ __('TeamSpeak') }}</a></li>@endcan -->
+                    <!-- @can('trainings', $user)<li class="nav-item"><a class="nav-link @if($page === 'trainings'){{'active'}}@endif" href="{{ route('users.show.page', [$user->Id, 'trainings']) }}">{{ __('Schulungen') }}</a></li>@endcan -->
                     @can('history', $user)<li class="nav-item"><a class="nav-link @if($page === 'history'){{'active'}}@endif" href="{{ route('users.show.page', [$user->Id, 'history']) }}">{{ __('Spielerakte') }}</a></li>@endcan
                     @can('mods', $user)<li class="nav-item"><a class="nav-link @if($page === 'mods'){{'active'}}@endif" href="{{ route('users.show.page', [$user->Id, 'mods']) }}">{{ __('Mods') }}</a></li>@endcan
                     @can('hardware', $user)<li class="nav-item"><a class="nav-link @if($page === 'hardware'){{'active'}}@endif" href="{{ route('users.show.page', [$user->Id, 'hardware']) }}">{{ __('Hardware') }}</a></li>@endcan
