@@ -8,6 +8,7 @@ use App\Models\PlayerHistory;
 use App\Services\StatisticService;
 use App\Services\TicketService;
 use App\Models\Texture;
+use App\Services\MTAService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -36,8 +37,12 @@ class DashboardController extends Controller
         //$playerCount = InfluxDB::query('select mean("loggedIn") from user_total WHERE ("branch" = \'release/production\') AND time > now() - 1d GROUP BY time(1h)');
         //$points = $playerCount->getPoints();
 
+        $mtaService = new MTAService();
+        $response = $mtaService->getOnlinePlayers();
+        $players = $response[0];
+
         $playerCountData = ['datasets' => [['data' => [], 'backgroundColor' => 'transparent', 'borderColor' => 'rgba(255,255,255,.55)', 'pointBackgroundColor' => '#39f']], 'labels' => []];
-        $lastPlayerCount = 0;
+        $lastPlayerCount = count($players);
         /*foreach ($points as $point) {
             array_push($playerCountData['labels'], $point['time']);
             array_push($playerCountData['datasets'][0]['data'], floor($point['mean']));
