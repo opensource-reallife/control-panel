@@ -34,13 +34,13 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->job(new TeamSpeakKickMusicBotsAndInactive)->cron('* * * * *');
-        $schedule->job(new TeamSpeakCheckNames)->cron('* * * * *');
-        $schedule->job(new TeamSpeakOldActivationNotification)->cron('*/2 * * * *');
-        $schedule->job(new TeamSpeakSyncGroups)->cron('*/5 * * * *');
-        $schedule->job(new TeamSpeakSyncActivation)->cron('* * * * *');
-        $schedule->job(new TeamSpeakUpdateId)->cron('* * * * *');
-        $schedule->job(new TeamSpeakSupportNotification())->cron('* * * * *');
-        $schedule->job(new TeamSpeakNotifyNotActivatedUsers())->cron('* * * * *');
+        // $schedule->job(new TeamSpeakCheckNames)->cron('* * * * *');
+        // $schedule->job(new TeamSpeakOldActivationNotification)->cron('*/2 * * * *');
+        // $schedule->job(new TeamSpeakSyncGroups)->cron('*/5 * * * *');
+        // $schedule->job(new TeamSpeakSyncActivation)->cron('* * * * *');
+        // $schedule->job(new TeamSpeakUpdateId)->cron('* * * * *');
+        // $schedule->job(new TeamSpeakSupportNotification())->cron('* * * * *');
+        // $schedule->job(new TeamSpeakNotifyNotActivatedUsers())->cron('* * * * *');
         $schedule->job(new IpHubLookup)->cron('*/5 * * * *');
     }
 
