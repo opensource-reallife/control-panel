@@ -515,6 +515,7 @@ class TicketController extends Controller
         switch($type)
         {
             case 'addMessage':
+                Log::error('hes Reaching');
                 if (empty($request->get('message')) || !is_string($request->get('message'))
                     || $request->get('message') === '' || str_replace(' ', '', $request->get('message')) === '') {
                     return response()->json(['Status' => 'Failed', 'Message' => __('Bitte gib eine Nachricht ein!')])->setStatusCode(400);
