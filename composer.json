@@ -11,7 +11,6 @@
         "php": "^7.2 || ^8.0",
         "ext-json": "*",
         "beyondcode/laravel-websockets": "^1.11",
-        "exo/teamspeak": "^1.0@dev",
         "fideloper/proxy": "^4.0",
         "graham-campbell/gitlab": "^3.1 || ^5.3",
         "guzzlehttp/guzzle": "^7.0.1",
