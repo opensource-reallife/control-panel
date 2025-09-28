@@ -515,7 +515,7 @@ class TicketController extends Controller
         switch($type)
         {
             case 'addMessage':
-                Log::error('hes Reaching');
+                error_log('Reaching');
                 if (empty($request->get('message')) || !is_string($request->get('message'))
                     || $request->get('message') === '' || str_replace(' ', '', $request->get('message')) === '') {
                     return response()->json(['Status' => 'Failed', 'Message' => __('Bitte gib eine Nachricht ein!')])->setStatusCode(400);
@@ -542,12 +542,14 @@ class TicketController extends Controller
                     event(new \App\Events\TicketUpdated($ticket));
                 } catch (\Exception $e) {
                     Log::error('Event boom: ' . $e->getMessage());
+                    error_log('PHP Event boom'. $e->getMessage());
                 }
                 $message = '[TICKET] ' . $name . ' hat auf das Ticket #' . $ticket->Id . ' geantwortet!';
                 try {
                      $mtaService->sendMessage('admin', null, $message, ['r' => 255, 'g' => 50, 'b' => 0, 'minRank' => $ticket->AssignedRank]);
                 } catch (\Exception $e) {
                     Log::error('MTA boom: ' . $e->getMessage());
+                    error_log('PHP MTA boom: ' . $e->getMessage());
                 }
                 foreach($ticket->users as $user)
                 {
