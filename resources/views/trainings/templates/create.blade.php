@@ -1,4 +1,4 @@
-@extends('layouts.app')
+<!-- @extends('layouts.app')
 
 @section('title', __('Vorlage anlegen') . ' - ' . __('Vorlagen') .' - ' . __('Schulungen'))
 
