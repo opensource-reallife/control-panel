@@ -125,7 +125,7 @@ class TicketController extends Controller
                 'AssigneeId' => $ticket->AssigneeId,
                 'AssignedRank' => $ticket->AssignedRank,
                 'CategoryId' => $ticket->CategoryId,
-                'Category' => $ticket->category->Title,
+                'Category' => $ticket->category ? $ticket->category->Title : __('Unbekannt'),
                 'Title' => $ticket->Title,
                 'State' => $ticket->State,
                 'StateText' => $ticket->State === Ticket::TICKET_STATE_OPEN ? 'Offen' : 'Geschlossen',
