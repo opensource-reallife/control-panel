@@ -95,7 +95,7 @@
                                         <tbody>
                                         @foreach($uninvites as $row)
                                             <tr>
-                                                <td>{{ $row->JoinDate }}</td>
+                                                <td>{{ $row->LeaveDate }}</td>
                                                 <td>{{ $row->element->Name }}</td>
                                                 <td>{{ $row->uninviter->Name }}</td>
                                                 <td>{{ $row->user->Name }}</td>
