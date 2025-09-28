@@ -519,7 +519,6 @@ class TicketController extends Controller
                     || $request->get('message') === '' || str_replace(' ', '', $request->get('message')) === '') {
                 return response()->json(['Status' => 'Failed', 'Message' => __('Bitte gib eine Nachricht ein!')])->setStatusCode(400);
                 }
-                error_log('Reaching');
                 
                 if (!$ticket->users->contains($userId)) {
                     $ticket->users()->attach($userId, ['JoinedAt' => new Carbon(), 'IsAdmin' => auth()->user()->Rank > 0 ? 1 : 0]);
@@ -538,19 +537,9 @@ class TicketController extends Controller
                 $answer->MessageType = 0;
                 $answer->Message = $request->get('message');
                 $answer->save();
-                try {
-                    event(new \App\Events\TicketUpdated($ticket));
-                } catch (\Exception $e) {
-                    Log::error('Event boom: ' . $e->getMessage());
-                    error_log('PHP Event boom'. $e->getMessage());
-                }
+                event(new \App\Events\TicketUpdated($ticket));
                 $message = '[TICKET] ' . $name . ' hat auf das Ticket #' . $ticket->Id . ' geantwortet!';
-                try {
-                     $mtaService->sendMessage('admin', null, $message, ['r' => 255, 'g' => 50, 'b' => 0, 'minRank' => $ticket->AssignedRank]);
-                } catch (\Exception $e) {
-                    Log::error('MTA boom: ' . $e->getMessage());
-                    error_log('PHP MTA boom: ' . $e->getMessage());
-                }
+                $mtaService->sendMessage('admin', null, $message, ['r' => 255, 'g' => 50, 'b' => 0, 'minRank' => $ticket->AssignedRank]);
                 foreach($ticket->users as $user)
                 {
                     if($user->Rank === 0 && $user->Id !== auth()->user()->Id)
