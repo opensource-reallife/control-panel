@@ -515,16 +515,16 @@ class TicketController extends Controller
         switch($type)
         {
             case 'addMessage':
-                error_log('Reaching');
                 if (empty($request->get('message')) || !is_string($request->get('message'))
                     || $request->get('message') === '' || str_replace(' ', '', $request->get('message')) === '') {
-                    return response()->json(['Status' => 'Failed', 'Message' => __('Bitte gib eine Nachricht ein!')])->setStatusCode(400);
+                return response()->json(['Status' => 'Failed', 'Message' => __('Bitte gib eine Nachricht ein!')])->setStatusCode(400);
                 }
-
+                error_log('Reaching');
+                
                 if (!$ticket->users->contains($userId)) {
                     $ticket->users()->attach($userId, ['JoinedAt' => new Carbon(), 'IsAdmin' => auth()->user()->Rank > 0 ? 1 : 0]);
                     $ticket->save();
-
+                    
                     $answer = new TicketAnswer();
                     $answer->TicketId = $ticket->Id;
                     $answer->UserId = $userId;
