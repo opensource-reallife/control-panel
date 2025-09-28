@@ -13,6 +13,7 @@ use Exo\TeamSpeak\Responses\TeamSpeakResponse;
 use Exo\TeamSpeak\Services\TeamSpeakService;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use App\Models\TicketCategory;
 use App\Http\Controllers\Controller;
 
@@ -536,10 +537,17 @@ class TicketController extends Controller
                 $answer->MessageType = 0;
                 $answer->Message = $request->get('message');
                 $answer->save();
-                event(new \App\Events\TicketUpdated($ticket));
+                try {
+                    event(new \App\Events\TicketUpdated($ticket));
+                } catch (\Exception $e) {
+                    Log::error('Event boom: ' . $e->getMessage());
+                }
                 $message = '[TICKET] ' . $name . ' hat auf das Ticket #' . $ticket->Id . ' geantwortet!';
-                $mtaService->sendMessage('admin', null, $message, ['r' => 255, 'g' => 50, 'b' => 0, 'minRank' => $ticket->AssignedRank]);
-
+                try {
+                     $mtaService->sendMessage('admin', null, $message, ['r' => 255, 'g' => 50, 'b' => 0, 'minRank' => $ticket->AssignedRank]);
+                } catch (\Exception $e) {
+                    Log::error('MTA boom: ' . $e->getMessage());
+                }
                 foreach($ticket->users as $user)
                 {
                     if($user->Rank === 0 && $user->Id !== auth()->user()->Id)
