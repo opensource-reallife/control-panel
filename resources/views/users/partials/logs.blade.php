@@ -13,6 +13,7 @@
                 <li class="nav-item"><a class="nav-link @if($log === 'damage'){{'active'}}@endif" href="{{ route('users.show.logs', [$user->Id, 'damage']) }}">{{ __('Schaden') }}</a></li>
                 <li class="nav-item"><a class="nav-link @if($log === 'chat'){{'active'}}@endif" href="{{ route('users.show.logs', [$user->Id, 'chat']) }}">{{ __('Chat') }}</a></li>
                 <li class="nav-item"><a class="nav-link @if($log === 'advert'){{'active'}}@endif" href="{{ route('users.show.logs', [$user->Id, 'advert']) }}">{{ __('Werbung') }}</a></li>
+                <li class="nav-item"><a class="nav-link @if($log === 'vehicle_damage'){{'active'}}@endif" href="{{ route('users.show.logs', [$user->Id, 'vehicle_damage']) }}">{{ __('Fahrzeug Schaden') }}</a></li>
             @endif
             <li class="nav-item"><a class="nav-link @if($log === 'money'){{'active'}}@endif" href="{{ route('users.show.logs', [$user->Id, 'money']) }}">{{ __('Geld') }}</a></li>
         </ul>
@@ -33,6 +34,8 @@
                         @include('users.partials.logs.chat')
                     @elseif($log === 'advert')
                         @include('users.partials.logs.advert')
+                    @elseif($log === 'vehicle_damage')
+                        @include('users.partials.logs.vehicle_damage')
                     @endif
                 @endif
                 @if($log === 'punish')

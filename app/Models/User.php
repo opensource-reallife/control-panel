@@ -11,6 +11,7 @@ use App\Models\Logs\Kills;
 use App\Models\Logs\Login;
 use App\Models\Logs\Advert;
 use App\Models\Logs\Damage;
+use App\Models\Logs\VehicleDamage;
 use App\Models\Logs\Punish;
 use App\Models\Shop\PremiumUser;
 use App\Models\IpHub;
@@ -129,6 +130,11 @@ class User extends Authenticatable
     public function damage()
     {
         return Damage::query()->where('UserId', $this->Id)->orWhere('TargetId', $this->Id); // $this->hasMany(Damage::class, 'UserId', 'Id');
+    }
+
+    public function vehicleDamage()
+    {
+        return VehicleDamage::query()->where('UserId', $this->Id); // $this->hasMany(Damage::class, 'UserId', 'Id');
     }
 
     public function money()

@@ -13,6 +13,7 @@ class Vehicle extends Model
     const UPDATED_AT = null;
     const CREATED_AT = null;
     protected $primaryKey = 'Id';
+    protected $connection = 'mysql';
 
     static $shopVehicles = null;
     static $rares = null;
