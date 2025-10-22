@@ -61,9 +61,13 @@ class TicketController extends Controller
         $tickets = auth()->user()->tickets()->with('user', 'assignee', 'category', 'resolver');
 
         if(auth()->user()->Rank >= 1) {
-            $tickets = Ticket::with('user', 'assignee', 'category', 'resolver');
+            $tickets = Ticket::with('user', 'assignee', 'category', 'resolver', 'users');
             $tickets->where(function (Builder $query) {
-                $query->where('AssignedRank', '<=', auth()->user()->Rank)->orWhere('AssignedRank', '=', null);
+                $query->where('AssignedRank', '<=', auth()->user()->Rank)->orWhere('AssignedRank', '=', null)
+                ->orWhereHas('users', function ($query) {
+                    $query->where('UserId', '=', auth()->user()->Id)
+                        ->whereNull('LeftAt');
+                });
             });
         } else {
             $tickets->where('IsAdmin', 0);
