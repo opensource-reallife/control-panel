@@ -22,7 +22,7 @@
                             @foreach($companies as $company)
                                 <tr>
                                     <td><a href="{{ route('companies.show', [$company->Id]) }}">{{ $company->Name }}</a></td>
-                                    <td>{{ $company->membersCount() }}</td>
+                                    <td>{{ $company->membersCount() }} / {{ $company->PlayerLimit }}</td>
                                 </tr>
                             @endforeach
                             </tbody>

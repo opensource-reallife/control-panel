@@ -52,7 +52,7 @@
             </a>
         </li>
         <li class="c-sidebar-nav-item">
-            <a class="c-sidebar-nav-link" href="{{ route('commits') }}">
+            <a class="c-sidebar-nav-link" href="https://github.com/opensource-reallife/mta-gamemode/commits/release/production">
                 <i class="c-sidebar-nav-icon fas fa-code-branch"></i>{{ __('Commits') }}
             </a>
         </li>
@@ -66,38 +66,6 @@
                 <i class="c-sidebar-nav-icon fas fa-images"></i>{{ __('Texturen') }}
             </a>
         </li>
-         <!-- @auth
-            @if(auth()->user()->Rank >= 5 || count(auth()->user()->character->getTrainingTargets()) > 0)
-        <li class="c-sidebar-nav-dropdown">
-            <a class="c-sidebar-nav-dropdown-toggle" href="#">
-                <i class="c-sidebar-nav-icon fas fa-toolbox"></i>{{ __('Schulungen') }}
-            </a>
-            <ul class="c-sidebar-nav-dropdown-items">
-                <li class="c-sidebar-nav-item">
-                    <a class="c-sidebar-nav-link" href="{{ route('trainings.overview.index') }}"><span class="c-sidebar-nav-icon fas fa-table"></span>{{ __('Übersicht') }}</a>
-                </li>
-            </ul>
-            <ul class="c-sidebar-nav-dropdown-items">
-                <li class="c-sidebar-nav-item">
-                    <a class="c-sidebar-nav-link" href="{{ route('trainings.index') }}"><span class="c-sidebar-nav-icon fas fa-chalkboard"></span>{{ __('Schulungen') }}</a>
-                </li>
-            </ul>
-            <ul class="c-sidebar-nav-dropdown-items">
-                <li class="c-sidebar-nav-item">
-                    <a class="c-sidebar-nav-link" href="{{ route('trainings.templates.index') }}"><span class="c-sidebar-nav-icon fas fa-list"></span>{{ __('Vorlagen') }}</a>
-                </li>
-            </ul>
-            @if((auth()->user()->character->FactionId <> 0 && auth()->user()->character->FactionRank >= 5) ||
-                (auth()->user()->character->CompanyId <> 0 && auth()->user()->character->CompanyRank >= 4))
-            <ul class="c-sidebar-nav-dropdown-items">
-                <li class="c-sidebar-nav-item">
-                    <a class="c-sidebar-nav-link" href="{{ route('trainings.permissions.index') }}"><span class="c-sidebar-nav-icon fas fa-shield-alt"></span>{{ __('Rechte') }}</a>
-                </li>
-            </ul>
-            @endif
-        </li>
-            @endif
-        @endauth -->
         @auth
             @if(auth()->user()->Rank >= 3)
                 <li class="c-sidebar-nav-dropdown">
@@ -113,9 +81,6 @@
                         </li>
                         <li class="c-sidebar-nav-item">
                             <a class="c-sidebar-nav-link" href="{{ route('admin.texture') }}"><span class="c-sidebar-nav-icon fas fa-images"></span>Texturen</a>
-                        </li>
-                        <li class="c-sidebar-nav-item">
-                            <a class="c-sidebar-nav-link" href="{{ route('admin.teamspeak.index') }}"><span class="c-sidebar-nav-icon fab fa-teamspeak"></span>Teamspeak</a>
                         </li>
                         <li class="c-sidebar-nav-item">
                             <a class="c-sidebar-nav-link" href="{{ route('admin.logs.show') }}"><span class="c-sidebar-nav-icon fas fa-file-alt"></span>Logs</a>
@@ -143,11 +108,6 @@
                                 <a class="c-sidebar-nav-link" href="{{ route('admin.maps.index') }}"><span class="c-sidebar-nav-icon fas fa-map"></span>Maps</a>
                             </li>
                         @endif
-                        <!-- @if(auth()->user()->Rank >= 7)
-                            <li class="c-sidebar-nav-item">
-                                <a class="c-sidebar-nav-link" href="https://pma.exo.cool"><span class="c-sidebar-nav-icon fas fa-database"></span>phpMyAdmin</a>
-                            </li>
-                        @endif -->
                     </ul>
                 </li>
             @endif

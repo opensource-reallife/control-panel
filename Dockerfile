@@ -1,7 +1,7 @@
-FROM alpine:latest
+FROM alpine:3.16
 
 # Add testing mirror for php8 mirror
-RUN echo "https://dl-cdn.alpinelinux.org/alpine/v3.16/community/" >> /etc/apk/repositories
+# RUN echo "https://dl-cdn.alpinelinux.org/alpine/v3.16/community/" >> /etc/apk/repositories
 
 # Install packages
 RUN apk --update add --no-cache \

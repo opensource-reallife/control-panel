@@ -63,16 +63,6 @@
                                         @else
                                             <i class="fas fa-gamepad text-success"></i>
                                         @endif
-                                        @if($user->isTeamSpeakBanned())
-                                            <i class="fab fa-teamspeak text-danger"
-                                               data-toggle="tooltip"
-                                               data-placement="right"
-                                               data-animation="true"
-                                               data-original-title="@if($user->isTeamSpeakBanned() === 0){{ 'Permanent' }}@else{{ \Carbon\Carbon::now()->addSeconds($user->isTeamSpeakBanned())->format('d.m.Y H:i:s') }}@endif">
-                                            </i>
-                                        @else
-                                            <i class="fab fa-teamspeak text-success"></i>
-                                        @endif
                                     </td>
                                     @endif
                                     <td><a href="{{ route('users.show', [$user->Id]) }}">{{ $user->Name }}</a></td>

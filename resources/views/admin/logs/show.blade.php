@@ -20,6 +20,7 @@
                     <li class="nav-item"><a class="nav-link @if($log === 'chat'){{'active'}}@endif" href="{{ route('admin.logs.show', ['chat']) }}">{{ __('Chat') }}</a></li>
                     <li class="nav-item"><a class="nav-link @if($log === 'advert'){{'active'}}@endif" href="{{ route('admin.logs.show', ['advert']) }}">{{ __('Werbung') }}</a></li>
                     <li class="nav-item"><a class="nav-link @if($log === 'group'){{'active'}}@endif" href="{{ route('admin.logs.show', ['group']) }}">{{ __('Group') }}</a></li>
+                    <li class="nav-item"><a class="nav-link @if($log === 'vehicle_damage'){{'active'}}@endif" href="{{ route('admin.logs.show', 'vehicle_damage') }}">{{ __('Fahrzeug Schaden') }}</a></li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active">
@@ -53,6 +54,8 @@
                             @include('admin.logs.partials.advert')
                         @elseif($log === 'group')
                             @include('admin.logs.partials.group')
+                        @elseif($log === 'vehicle_damage')
+                            @include('admin.logs.partials.vehicle_damage')
                         @endif
                     </div>
                 </div>
@@ -61,7 +64,7 @@
     </div>
 @endsection
 
-@section('script'))
+@section('script')
     <script>
         document.querySelectorAll('[data-toggle="tooltip"]').forEach(function (element) {
             // eslint-disable-next-line no-new

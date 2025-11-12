@@ -13,6 +13,7 @@ use Exo\TeamSpeak\Responses\TeamSpeakResponse;
 use Exo\TeamSpeak\Services\TeamSpeakService;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use App\Models\TicketCategory;
 use App\Http\Controllers\Controller;
 
@@ -60,9 +61,13 @@ class TicketController extends Controller
         $tickets = auth()->user()->tickets()->with('user', 'assignee', 'category', 'resolver');
 
         if(auth()->user()->Rank >= 1) {
-            $tickets = Ticket::with('user', 'assignee', 'category', 'resolver');
+            $tickets = Ticket::with('user', 'assignee', 'category', 'resolver', 'users');
             $tickets->where(function (Builder $query) {
-                $query->where('AssignedRank', '<=', auth()->user()->Rank)->orWhere('AssignedRank', '=', null);
+                $query->where('AssignedRank', '<=', auth()->user()->Rank)->orWhere('AssignedRank', '=', null)
+                ->orWhereHas('users', function ($query) {
+                    $query->where('UserId', '=', auth()->user()->Id)
+                        ->whereNull('LeftAt');
+                });
             });
         } else {
             $tickets->where('IsAdmin', 0);
@@ -124,7 +129,7 @@ class TicketController extends Controller
                 'AssigneeId' => $ticket->AssigneeId,
                 'AssignedRank' => $ticket->AssignedRank,
                 'CategoryId' => $ticket->CategoryId,
-                'Category' => $ticket->category->Title,
+                'Category' => $ticket->category ? $ticket->category->Title : __('Unbekannt'),
                 'Title' => $ticket->Title,
                 'State' => $ticket->State,
                 'StateText' => $ticket->State === Ticket::TICKET_STATE_OPEN ? 'Offen' : 'Geschlossen',
@@ -516,13 +521,13 @@ class TicketController extends Controller
             case 'addMessage':
                 if (empty($request->get('message')) || !is_string($request->get('message'))
                     || $request->get('message') === '' || str_replace(' ', '', $request->get('message')) === '') {
-                    return response()->json(['Status' => 'Failed', 'Message' => __('Bitte gib eine Nachricht ein!')])->setStatusCode(400);
+                return response()->json(['Status' => 'Failed', 'Message' => __('Bitte gib eine Nachricht ein!')])->setStatusCode(400);
                 }
-
+                
                 if (!$ticket->users->contains($userId)) {
                     $ticket->users()->attach($userId, ['JoinedAt' => new Carbon(), 'IsAdmin' => auth()->user()->Rank > 0 ? 1 : 0]);
                     $ticket->save();
-
+                    
                     $answer = new TicketAnswer();
                     $answer->TicketId = $ticket->Id;
                     $answer->UserId = $userId;
@@ -539,7 +544,6 @@ class TicketController extends Controller
                 event(new \App\Events\TicketUpdated($ticket));
                 $message = '[TICKET] ' . $name . ' hat auf das Ticket #' . $ticket->Id . ' geantwortet!';
                 $mtaService->sendMessage('admin', null, $message, ['r' => 255, 'g' => 50, 'b' => 0, 'minRank' => $ticket->AssignedRank]);
-
                 foreach($ticket->users as $user)
                 {
                     if($user->Rank === 0 && $user->Id !== auth()->user()->Id)

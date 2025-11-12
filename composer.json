@@ -11,6 +11,7 @@
         "php": "^7.2 || ^8.0",
         "ext-json": "*",
         "beyondcode/laravel-websockets": "^1.11",
+        "exo/teamspeak": "^1.0@dev",
         "fideloper/proxy": "^4.0",
         "graham-campbell/gitlab": "^3.1 || ^5.3",
         "guzzlehttp/guzzle": "^7.0.1",
@@ -22,7 +23,7 @@
         "laravel/ui": "^3.0",
         "multitheftauto/mtasa-php-sdk": "dev-master",
         "orchestra/parser": "^6.0",
-        "owen-it/laravel-auditing": "^10.0",
+        "owen-it/laravel-auditing": "^12.0",
         "paypal/rest-api-sdk-php": "^1.14",
         "php-http/curl-client": "^2.0",
         "php-http/guzzle7-adapter": "^0.1",
@@ -44,7 +45,10 @@
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
     },
     "extra": {
         "laravel": {

@@ -65,5 +65,7 @@ window.Echo = new Echo({
     key: window.Exo.PusherKey,
     wsHost: window.location.hostname,
     wsPort: (window.Exo.Env === 'production' || window.Exo.Env === 'release-production') ? 443 : 6001,
-    forceTLS: (window.Exo.Env === 'production' || window.Exo.Env === 'release-production')
+    forceTLS: (window.Exo.Env === 'production' || window.Exo.Env === 'release-production'),
+    disableStats: true,
+    enabledTransports: ['ws', 'wss']
 });
