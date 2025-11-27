@@ -43,8 +43,8 @@ RUN apk --update add --no-cache \
     addgroup -g 1000 -S app && \
     adduser -u 1000 -S app -G app && \
     mkdir /var/log/websockets && \
-    touch /var/log/php8/stdout.log && \
-    touch /var/log/php8/stderr.log && \
+    touch /var/log/php84/stdout.log && \
+    touch /var/log/php84/stderr.log && \
     touch /var/log/nginx/stdout.log && \
     touch /var/log/nginx/stderr.log && \
     touch /var/log/websockets/stdout.log && \
