@@ -59,8 +59,8 @@ RUN cp /usr/share/zoneinfo/Europe/Vienna /etc/localtime && \
 COPY build/nginx.conf /etc/nginx/nginx.conf
 
 # Configure PHP-FPM
-COPY build/fpm-pool.conf /etc/php8/php-fpm.d/www.conf
-COPY build/php.ini /etc/php8/conf.d/zzz_custom.ini
+COPY build/fpm-pool.conf /etc/php84/php-fpm.d/www.conf
+COPY build/php.ini /etc/php84/conf.d/zzz_custom.ini
 
 # Configure cron
 COPY build/crontab /etc/cron/crontab
@@ -70,10 +70,10 @@ COPY build/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Make sure files/folders needed by the processes are accessable when they run under the nobody user
 RUN chown -R app.app /run && \
-  chown -R app.app /var/lib/nginx && \
-  chown -R app.app /var/log/nginx && \
-  chown -R app.app /var/log/websockets && \
-  chown -R app.app /var/www
+  chown -R app:app /var/lib/nginx && \
+  chown -R app:app /var/log/nginx && \
+  chown -R app:app /var/log/websockets && \
+  chown -R app:app /var/www
 
 # Setup document root
 RUN mkdir -p /var/www/public
@@ -89,8 +89,8 @@ COPY --chown=app:app . /var/www
 # Switch to use a non-root user from here on
 USER 1000
 
-RUN php8 artisan storage:link && \
-    php8 artisan cache:clear && \
+RUN php84 artisan storage:link && \
+    php84 artisan cache:clear && \
     rm public/js/app.js.map
 
 USER 0
