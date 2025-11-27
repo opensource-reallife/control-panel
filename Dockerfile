@@ -1,4 +1,4 @@
-FROM alpine:3.16
+FROM alpine:3.22
 
 # Add testing mirror for php8 mirror
 # RUN echo "https://dl-cdn.alpinelinux.org/alpine/v3.16/community/" >> /etc/apk/repositories
