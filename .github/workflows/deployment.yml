@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: lorisleiva/laravel-docker:8.0
+    container: lorisleiva/laravel-docker:8.4
     steps:
       -
         name: Checkout
