@@ -17,28 +17,28 @@ RUN apk --update add --no-cache \
       libpng-dev \
       nodejs \
       git \
-      php8 \
-      php8-dom \
-      php8-fpm \
-      php8-mbstring \
-      php8-opcache \
-      php8-pdo \
-      php8-pdo_mysql \
-      php8-pdo_pgsql \
-      php8-pdo_sqlite \
-      php8-xml \
-      php8-phar \
-      php8-openssl \
-      php8-json \
-      php8-curl \
-      php8-ctype \
-      php8-session \
-      php8-gd \
-      php8-zlib \
-      php8-tokenizer \
-      php8-bcmath \
-      php8-redis \
-      php8-fileinfo \
+      php84 \
+      php84-dom \
+      php84-fpm \
+      php84-mbstring \
+      php84-opcache \
+      php84-pdo \
+      php84-pdo_mysql \
+      php84-pdo_pgsql \
+      php84-pdo_sqlite \
+      php84-xml \
+      php84-phar \
+      php84-openssl \
+      php84-json \
+      php84-curl \
+      php84-ctype \
+      php84-session \
+      php84-gd \
+      php84-zlib \
+      php84-tokenizer \
+      php84-bcmath \
+      php84-redis \
+      php84-fileinfo \
       nodejs \
       npm \
     && rm -rf /var/cache/apk/* && \
