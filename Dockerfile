@@ -29,15 +29,13 @@ RUN apk --update add --no-cache \
       php84-xml \
       php84-phar \
       php84-openssl \
-      php84-json \
       php84-curl \
       php84-ctype \
       php84-session \
       php84-gd \
-      php84-zlib \
       php84-tokenizer \
       php84-bcmath \
-      php84-redis \
+      php84-pecl-redis \
       php84-fileinfo \
       nodejs \
       npm \
