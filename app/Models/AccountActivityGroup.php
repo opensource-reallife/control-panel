@@ -10,8 +10,8 @@ class AccountActivityGroup extends Model
 {
     protected $table = "account_activity_group";
 
-    protected $dates = [
-        'Date'
+    protected $casts = [
+        'Date' => 'datetime'
     ];
 
     public static function getActivity($elementId, $elementType, Carbon $from, Carbon $to)

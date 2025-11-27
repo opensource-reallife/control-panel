@@ -66,7 +66,7 @@
 
 @section('script')
     <script>
-        document.querySelectorAll('[data-toggle="tooltip"]').forEach(function (element) {
+        document.querySelectorAll('[data-coreui-toggle="tooltip"]').forEach(function (element) {
             // eslint-disable-next-line no-new
             new coreui.Tooltip(element);
         });

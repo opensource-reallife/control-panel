@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import {Button, Modal, Spinner, Form, InputGroup} from 'react-bootstrap';
 import axios from "axios";
 
@@ -109,7 +109,9 @@ for (var index in kickDialogs) {
     const component = kickDialogs[index];
     if(typeof component === 'object') {
         const props = Object.assign({}, component.dataset);
-        ReactDOM.render(<KickDialog {...props} />, component);
+        const root = createRoot(component);
+        root.render(<KickDialog {...props} />);
+        // ReactDOM.render(<KickDialog {...props} />, component);
     }
 }
 

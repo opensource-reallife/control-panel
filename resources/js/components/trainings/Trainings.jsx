@@ -1,10 +1,9 @@
 import React, { Component, useState } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import {
     BrowserRouter as Router,
-    Switch,
+    Routes,
     Route,
-    Link
 } from "react-router-dom";
 import TrainingEntry from "./TrainingEntry";
 import TrainingList from "./TrainingList";
@@ -14,10 +13,10 @@ export default class Trainings extends Component {
         return (
             <Router>
                 <div>
-                    <Switch>
-                        <Route path="/trainings/:trainingId" render={(routeProps) => (<TrainingEntry {...routeProps} />)} />
-                        <Route path="/trainings" component={TrainingList} />
-                    </Switch>
+                    <Routes>
+                        <Route path="/trainings/:trainingId" element={<TrainingEntry />} />
+                        <Route path="/trainings" element={<TrainingList />} />
+                    </Routes>
                 </div>
             </Router>
         );
@@ -30,7 +29,9 @@ for (var index in practices) {
     const component = practices[index];
     if(typeof component === 'object') {
         const props = Object.assign({}, component.dataset);
-        ReactDOM.render(<Trainings {...props} />, component);
+        const root = createRoot(component);
+        root.render(<Trainings {...props} />);
+        // ReactDOM.render(<Trainings {...props} />, component);
     }
 }
 

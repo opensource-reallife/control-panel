@@ -16,7 +16,7 @@ class Ticket extends Model
     const UPDATED_AT = 'LastResponseAt';
     const CREATED_AT = 'CreatedAt';
     protected $primaryKey = 'Id';
-    protected $dates = ['DeletedAt', 'LastResponseAt', 'CreatedAt', 'ResolvedAt'];
+    protected $casts = ['DeletedAt' => 'datetime', 'LastResponseAt' => 'datetime', 'CreatedAt' => 'datetime', 'ResolvedAt' => 'datetime'];
 
 
     public function user()
@@ -63,7 +63,7 @@ class Ticket extends Model
             'State' => $this->State,
             'StateText' => $this->State === Ticket::TICKET_STATE_OPEN ? 'Offen' : 'Geschlossen',
             'ResolvedBy' => $this->ResolvedBy,
-            'LastResponseAt' => $this->LastResponseAt->format('d.m.Y H:i:s'),
+            'LastResponseAt' => $this->LastResponseAt ? $this->LastResponseAt->format('d.m.Y H:i:s') : null,
             'CreatedAt' => $this->CreatedAt->format('d.m.Y H:i:s'),
             'ResolvedAt' => $this->ResolvedAt ? $this->ResolvedAt->format('d.m.Y H:i:s') : null,
             'settings' => [

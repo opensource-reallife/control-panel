@@ -14,7 +14,7 @@ class GangwarStatistic extends Model
     public const CREATED_AT = 'Date';
     public const UPDATED_AT = null;
 
-    protected $dates = ['Date'];
+    protected $casts = ['Date' => 'datetime'];
 
     public function user()
     {

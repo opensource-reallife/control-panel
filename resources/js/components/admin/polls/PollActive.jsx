@@ -1,11 +1,8 @@
-import React, { Component, useState } from 'react';
-import ReactDOM from 'react-dom';
-import TicketListEntry from "../../tickets/TicketListEntry";
-import { Beforeunload } from 'react-beforeunload';
-import { Pie, Doughnut } from "react-chartjs-2";
+import { Component } from 'react';
+import { Pie } from "react-chartjs-2";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
-import {Form, InputGroup, Modal, Spinner} from "react-bootstrap";
+import {Form, InputGroup, Spinner} from "react-bootstrap";
 import classNames from 'classnames'
 import {Link} from "react-router-dom";
 
@@ -254,7 +251,7 @@ export default class PollActive extends Component {
             return <div className="col-12">
                 <div className="row mb-2">
                     <div className="col-12">
-                        <Link to={'/admin/polls/history'} className="btn btn-primary float-right">History</Link>
+                        <Link to={'../admin/polls/history'} className="btn btn-primary float-right">History</Link>
                     </div>
                 </div>
                 <div className="row">

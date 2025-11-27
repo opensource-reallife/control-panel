@@ -11,7 +11,7 @@ class TicketAnswer extends Model
     const CREATED_AT = 'CreatedAt';
     const UPDATED_AT = null;
     protected $primaryKey = 'Id';
-    protected $dates = ['CreatedAt'];
+    protected $casts = ['CreatedAt' => 'datetime'];
 
     public function user()
     {

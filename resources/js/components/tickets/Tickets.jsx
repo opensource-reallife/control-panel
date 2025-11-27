@@ -1,10 +1,9 @@
 import React, { Component, useState } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import {
     BrowserRouter as Router,
-    Switch,
     Route,
-    Link
+    Routes,
 } from "react-router-dom";
 import TicketCreate from "./TicketCreate";
 import TicketEntry from "./TicketEntry";
@@ -15,11 +14,11 @@ export default class Tickets extends Component {
         return (
             <Router>
                 <div>
-                    <Switch>
-                        <Route path="/tickets/create" render={(routeProps) => (<TicketCreate {...routeProps} />)} />
-                        <Route path="/tickets/:ticketId" render={(routeProps) => (<TicketEntry {...routeProps} minimal={this.props.minimal}/>)} />
-                        <Route path="/tickets" render={(routeProps) => (<TicketList {...routeProps} minimal={this.props.minimal}/>)} />
-                    </Switch>
+                    <Routes>
+                        <Route path="/tickets/create" element={<TicketCreate />} />
+                        <Route path="/tickets/:ticketId" element={<TicketEntry minimal={this.props.minimal} />}/>
+                        <Route path="/tickets" element={<TicketList minimal={this.props.minimal} />} />
+                    </Routes>
                 </div>
             </Router>
         );
@@ -32,7 +31,9 @@ for (var index in tickets) {
     const component = tickets[index];
     if(typeof component === 'object') {
         const props = Object.assign({}, component.dataset);
-        ReactDOM.render(<Tickets {...props} />, component);
+        const root = createRoot(component);
+        root.render(<Tickets {...props} />);
+        // ReactDOM.render(<Tickets {...props} />, component);
     }
 }
 

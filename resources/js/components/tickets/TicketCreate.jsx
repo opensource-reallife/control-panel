@@ -1,7 +1,7 @@
 import React, { Component, useState } from 'react';
 import {Button, Modal, Spinner, Form, InputGroup} from 'react-bootstrap';
 import axios from "axios";
-import {Link, withRouter} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {toast, ToastContainer} from "react-toastify";
 import Select from 'react-select';
 import AsyncSelect from 'react-select/async';
@@ -343,7 +343,7 @@ class TicketCreate extends Component {
                 <ToastContainer />
                 <div className="row mb-4">
                     <div className="col-md-12">
-                        <Link to="/tickets" className="btn btn-primary float-right">Zurück</Link>
+                        <Link to="../tickets" className="btn btn-primary float-right">Zurück</Link>
                     </div>
                 </div>
                 <div className="row">
@@ -399,4 +399,4 @@ class TicketCreate extends Component {
 }
 
 
-export default withRouter(TicketCreate);
+export default TicketCreate;

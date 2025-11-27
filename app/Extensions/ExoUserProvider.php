@@ -123,4 +123,9 @@ class ExoUserProvider implements UserProvider
             return false;
         }
     }
+
+    public function rehashPasswordIfRequired(Authenticatable $user, array $credentials, bool $force = false)
+    {
+        return;
+    }
 }

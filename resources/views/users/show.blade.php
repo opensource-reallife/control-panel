@@ -20,7 +20,7 @@
                             <!-- <a class="btn btn-primary" href="{{ 'https://ingame.openreallife.net/index.php?page=admin&f=spieler&id=' . $user->Id }}">{{ __('Altes CP') }}</a> -->
 
                             <div class="btn-group" role="group">
-                                <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button type="button" class="btn btn-danger dropdown-toggle" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {{ __('MTA Server') }}
                                 </button>
                                 <div class="dropdown-menu">
@@ -39,7 +39,7 @@
                             </div>
 
                             <!-- <div class="btn-group" role="group">
-                                <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button type="button" class="btn btn-danger dropdown-toggle" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {{ 'TeamSpeak' }}
                                 </button>
                                 <div class="dropdown-menu">
@@ -59,7 +59,7 @@
                 </div>
             </div>
         </div>
-        <hr>
+        <hr class="border-[rgba(0,0,21,0.2)]">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <ul class="nav nav-pills" role="tablist">
@@ -102,7 +102,7 @@
 
 @section('script')
     <script>
-        document.querySelectorAll('[data-toggle="tooltip"]').forEach(function (element) {
+        document.querySelectorAll('[data-coreui-toggle="tooltip"]').forEach(function (element) {
             // eslint-disable-next-line no-new
             new coreui.Tooltip(element);
         });

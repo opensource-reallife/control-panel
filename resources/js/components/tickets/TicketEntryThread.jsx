@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import {Button, Modal, Spinner, Form, InputGroup, OverlayTrigger, Tooltip, Row, Col} from 'react-bootstrap';
 import axios from "axios";
 import TicketListEntry from "./TicketListEntry";

@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import {Button, Modal, Spinner, Form, InputGroup} from 'react-bootstrap';
 import axios from "axios";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
@@ -79,19 +79,17 @@ export default class TeamSpeakBanDialog extends Component {
                                 <Form.Label>Dauer</Form.Label>
                                 <InputGroup>
                                     <Form.Control name="duration" type="text" placeholder="Dauer" onChange={this.onChange.bind(this)} />
-                                    <InputGroup.Append>
-                                        <div className="btn-group btn-group-toggle" data-toggle="buttons">
-                                            <label className="btn btn-secondary active" onClick={this.setTimeMultiplicator.bind(this, 60 * 60)}>
-                                                <input type="radio" name="options" id="option1" checked onClick={this.setTimeMultiplicator.bind(this, 60 * 60)}/> Stunden
-                                            </label>
-                                            <label className="btn btn-secondary" onClick={this.setTimeMultiplicator.bind(this, 60 * 60 * 24)}>
-                                                <input type="radio" name="options" id="option2" onClick={this.setTimeMultiplicator.bind(this, 60 * 60 * 24)}/> Tage
-                                            </label>
-                                            <label className="btn btn-secondary" onClick={this.setTimeMultiplicator.bind(this, 60 * 60 * 24 * 30)}>
-                                                <input type="radio" name="options" id="option3" onClick={this.setTimeMultiplicator.bind(this, 60 * 60 * 24 * 30)}/> Monate
-                                            </label>
-                                        </div>
-                                    </InputGroup.Append>
+                                    <div className="btn-group btn-group-toggle" data-coreui-toggle="buttons">
+                                        <label className="btn btn-secondary active" onClick={this.setTimeMultiplicator.bind(this, 60 * 60)}>
+                                            <input type="radio" name="options" id="option1" checked onClick={this.setTimeMultiplicator.bind(this, 60 * 60)}/> Stunden
+                                        </label>
+                                        <label className="btn btn-secondary" onClick={this.setTimeMultiplicator.bind(this, 60 * 60 * 24)}>
+                                            <input type="radio" name="options" id="option2" onClick={this.setTimeMultiplicator.bind(this, 60 * 60 * 24)}/> Tage
+                                        </label>
+                                        <label className="btn btn-secondary" onClick={this.setTimeMultiplicator.bind(this, 60 * 60 * 24 * 30)}>
+                                            <input type="radio" name="options" id="option3" onClick={this.setTimeMultiplicator.bind(this, 60 * 60 * 24 * 30)}/> Monate
+                                        </label>
+                                    </div>
                                 </InputGroup>
                                 <Form.Text className="text-muted">
                                     Um einen Spieler permanent zu sperren die Dauer "0" verwenden.
@@ -140,7 +138,9 @@ for (var index in banDialogs) {
     const component = banDialogs[index];
     if(typeof component === 'object') {
         const props = Object.assign({}, component.dataset);
-        ReactDOM.render(<TeamSpeakBanDialog {...props} />, component);
+        const root = createRoot(component);
+        root.render(<TeamSpeakBanDialog {...props} />);
+        // ReactDOM.render(<TeamSpeakBanDialog {...props} />, component);
     }
 }
 

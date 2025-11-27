@@ -8,13 +8,13 @@
             <div class="col-12">
                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link active" id="pills-player-tab" data-toggle="pill" href="#pills-player" role="tab" aria-controls="pills-player" aria-selected="true">{{ __('Top Spieler') }}</a>
+                        <a class="nav-link active" id="pills-player-tab" data-coreui-toggle="pill" href="#pills-player" role="tab" aria-controls="pills-player" aria-selected="true">{{ __('Top Spieler') }}</a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="pills-gangwar-tab" data-toggle="pill" href="#pills-gangwar" role="tab" aria-controls="pills-gangwar" aria-selected="false">{{ __('Gangwar') }}</a>
+                        <a class="nav-link" id="pills-gangwar-tab" data-coreui-toggle="pill" href="#pills-gangwar" role="tab" aria-controls="pills-gangwar" aria-selected="false">{{ __('Gangwar') }}</a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="pills-money-tab" data-toggle="pill" href="#pills-money" role="tab" aria-controls="pills-money" aria-selected="false">{{ __('Server Bankkonten') }}</a>
+                        <a class="nav-link" id="pills-money-tab" data-coreui-toggle="pill" href="#pills-money" role="tab" aria-controls="pills-money" aria-selected="false">{{ __('Server Bankkonten') }}</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="pills-tabContent">

@@ -1,9 +1,34 @@
 import React, { Component, useState } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import axios from 'axios';
 import {Line, Doughnut, Bar} from 'react-chartjs-2';
 import { Spinner } from 'react-bootstrap';
 
+import {
+  Chart as ChartJS,
+  ArcElement,
+  LineElement,
+  BarElement,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  Tooltip,
+  Legend,
+  Title,
+} from 'chart.js';
+
+// Registrierung aller genutzten Elemente
+ChartJS.register(
+  ArcElement,     // für Doughnut
+  LineElement,    // für Line
+  BarElement,     // für Bar
+  CategoryScale,  // X-Achse
+  LinearScale,    // Y-Achse
+  PointElement,   // Punkte im LineChart
+  Tooltip,
+  Legend,
+  Title
+);
 
 import 'bootstrap-daterangepicker/daterangepicker.css';
 
@@ -113,11 +138,11 @@ export default class Chart extends Component {
                 let fromTo;
 
                 if(this.state.data.type === 'doughnut') {
-                    chart = <Doughnut plugins={[showAllTooltipsPlugin]} data={this.state.data.data} options={this.state.data.options} />;
+                    chart = <Doughnut  data={this.state.data.data} options={this.state.data.options} />;
                 } else if(this.state.data.type === 'bar') {
-                    chart = <Bar plugins={[showAllTooltipsPlugin]} data={this.state.data.data} options={this.state.data.options} />;
+                    chart = <Bar data={this.state.data.data} options={this.state.data.options} />;
                 } else {
-                    chart = <Line plugins={[showAllTooltipsPlugin]} data={this.state.data.data} options={this.state.data.options} />;
+                    chart = <Line  data={this.state.data.data} options={this.state.data.options} />;
                 }
 
                 if(this.state.data.from && this.state.data.to) {
@@ -165,7 +190,9 @@ for (var index in charts) {
     const component = charts[index];
     if(typeof component === 'object') {
         const props = Object.assign({}, component.dataset);
-        ReactDOM.render(<Chart {...props} />, component);
+        const root = createRoot(component);
+        root.render(<Chart {...props} />);
+        // ReactDOM.render(<Chart {...props} />, component);
     }
 }
 

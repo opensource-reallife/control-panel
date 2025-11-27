@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import {Button, Modal, Spinner, Form, InputGroup, Row, Col} from 'react-bootstrap';
 import axios from "axios";
 import SelectUserDialog from "./SelectUserDialog";
@@ -157,7 +157,9 @@ for (var index in selectUserDialog) {
     const component = selectUserDialog[index];
     if(typeof component === 'object') {
         const props = Object.assign({}, component.dataset);
-        ReactDOM.render(<SelectUserFromListDialog {...props} />, component);
+        const root = createRoot(component);
+        root.render(<SelectUserFromListDialog {...props} />);
+        // ReactDOM.render(<SelectUserFromListDialog {...props} />, component);
     }
 }
 

@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import {Button, Modal, Spinner, Form, OverlayTrigger, Tooltip, Col} from 'react-bootstrap';
 import axios from "axios";
 import {Link} from "react-router-dom";
@@ -34,7 +34,7 @@ export default class TrainingListEntry extends Component {
                 <td>{this.props.training.StateText}</td>
                 <td>{this.props.training.CreatedAt}</td>
                 <td>
-                    <Link to={'/trainings/' + this.props.training.Id} className="btn btn-primary btn-sm">Details</Link>
+                    <Link to={'../trainings/' + this.props.training.Id} className="btn btn-primary btn-sm">Details</Link>
                 </td>
             </tr>
         );

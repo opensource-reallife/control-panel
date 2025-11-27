@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { Button, Modal, Spinner, Form } from 'react-bootstrap';
 import axios from "axios";
 import {Link} from "react-router-dom";
@@ -29,7 +29,7 @@ export default class TicketListEntry extends Component {
                 <td className="d-none d-md-table-cell">{this.props.ticket.CreatedAt}</td>
                 <td className="d-none d-md-table-cell">{this.props.ticket.AnswerCount}</td>
                 <td>
-                    <Link to={'/tickets/' + this.props.ticket.Id} className="btn btn-primary btn-sm">Details</Link>
+                    <Link to={'../tickets/' + this.props.ticket.Id} className="btn btn-primary btn-sm">Details</Link>
                 </td>
             </tr>
         );

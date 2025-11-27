@@ -20,10 +20,10 @@ class Training extends Model implements Auditable
     public const CREATED_AT = 'CreatedAt';
     public const UPDATED_AT = 'UpdatedAt';
 
-    protected $dates = [
-        'CreatedAt',
-        'UpdatedAt',
-        'CreatedAt',
+    protected $casts = [
+        'CreatedAt' => 'datetime',
+        'UpdatedAt' => 'datetime',
+        'DeletedAt' => 'datetime',
     ];
 
     public function user()

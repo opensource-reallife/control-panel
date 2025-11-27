@@ -10,8 +10,8 @@ class AccountActivity extends Model
 {
     protected $table = "account_activity";
 
-    protected $dates = [
-        'Date'
+    protected $casts = [
+        'Date' => 'datetime'
     ];
 
     public static function getActivity(User $user, Carbon $from, Carbon $to)

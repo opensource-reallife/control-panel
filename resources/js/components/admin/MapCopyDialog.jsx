@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import {Button, Modal, Spinner, Form, InputGroup} from 'react-bootstrap';
 import axios from "axios";
 
@@ -112,7 +112,9 @@ for (var index in mapCopyDialogs) {
     const component = mapCopyDialogs[index];
     if(typeof component === 'object') {
         const props = Object.assign({}, component.dataset);
-        ReactDOM.render(<MapCopyDialog {...props} />, component);
+        const root = createRoot(component);
+        root.render(<MapCopyDialog {...props} />);
+        // ReactDOM.render(<MapCopyDialog {...props} />, component);
     }
 }
 

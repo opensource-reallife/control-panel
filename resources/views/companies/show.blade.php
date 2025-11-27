@@ -5,7 +5,7 @@
 @section('content')
     <div class="container-fluid">
         <h3>{{ $company->Name }}</h3>
-        <hr>
+        <hr class="border-[rgba(0,0,21,0.2)]">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <ul class="nav nav-pills" role="tablist">

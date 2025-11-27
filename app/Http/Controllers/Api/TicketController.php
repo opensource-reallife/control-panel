@@ -135,7 +135,7 @@ class TicketController extends Controller
                 'StateText' => $ticket->State === Ticket::TICKET_STATE_OPEN ? 'Offen' : 'Geschlossen',
                 'ResolvedBy' => $ticket->ResolvedBy,
                 'AnswerCount' => $ticket->answers()->where('MessageType', 0)->count(),
-                'LastResponseAt' => $ticket->LastResponseAt->format('d.m.Y H:i:s'),
+                'LastResponseAt' => $ticket->LastResponseAt ? $ticket->LastResponseAt->format('d.m.Y H:i:s') : null,
                 'CreatedAt' => $ticket->CreatedAt->format('d.m.Y H:i:s'),
                 'ResolvedAt' => $ticket->ResolvedAt ? $ticket->ResolvedAt->format('d.m.Y H:i:s') : null,
             ];

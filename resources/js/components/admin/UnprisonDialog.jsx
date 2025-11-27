@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import {Button, Modal, Spinner, Form, InputGroup} from 'react-bootstrap';
 import axios from "axios";
 
@@ -109,7 +109,9 @@ for (var index in unprisonDialogs) {
     const component = unprisonDialogs[index];
     if(typeof component === 'object') {
         const props = Object.assign({}, component.dataset);
-        ReactDOM.render(<UnprisonDialog {...props} />, component);
+        const root = createRoot(component);
+        root.render(<UnprisonDialog {...props} />);
+        // ReactDOM.render(<UnprisonDialog {...props} />, component);
     }
 }
 

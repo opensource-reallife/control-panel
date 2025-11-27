@@ -59,12 +59,8 @@ class StatisticService
             'options' => [
                 'maintainAspectRatio' => false,
                 'scales' => [
-                    'yAxes' => [
-                        [
-                            'ticks' => [
-                                'min' => 0,
-                            ]
-                        ]
+                    'y' => [
+                        'min' => 0,
                     ]
                 ],
                 'hover' => [
@@ -123,12 +119,8 @@ class StatisticService
             'options' => [
                 'maintainAspectRatio' => false,
                 'scales' => [
-                    'yAxes' => [
-                        [
-                            'ticks' => [
-                                'min' => 0,
-                            ]
-                        ]
+                    'y' => [
+                        'min' => 0,
                     ]
                 ],
                 'hover' => [
@@ -191,12 +183,8 @@ class StatisticService
             'options' => [
                 'maintainAspectRatio' => false,
                 'scales' => [
-                    'yAxes' => [
-                        [
-                            'ticks' => [
-                                'min' => 0,
-                            ]
-                        ]
+                    'y' => [
+                        'min' => 0,
                     ]
                 ],
                 'hover' => [
@@ -259,12 +247,8 @@ class StatisticService
             'options' => [
                 'maintainAspectRatio' => false,
                 'scales' => [
-                    'yAxes' => [
-                        [
-                            'ticks' => [
-                                'min' => 0,
-                            ]
-                        ]
+                    'y' => [
+                        'min' => 0,
                     ]
                 ],
                 'hover' => [
@@ -315,12 +299,8 @@ class StatisticService
             'options' => [
                 'maintainAspectRatio' => false,
                 'scales' => [
-                    'yAxes' => [
-                        [
-                            'ticks' => [
-                                'min' => 0,
-                            ]
-                        ]
+                    'y' => [
+                        'min' => 0,
                     ]
                 ],
                 'hover' => [
@@ -385,12 +365,8 @@ class StatisticService
             'options' => [
                 'maintainAspectRatio' => false,
                 'scales' => [
-                    'yAxes' => [
-                        [
-                            'ticks' => [
-                                'min' => 0,
-                            ]
-                        ]
+                    'y' => [
+                        'min' => 0,
                     ]
                 ],
                 'hover' => [
@@ -809,12 +785,12 @@ class StatisticService
                     'intersect' => false
                 ],
                 'scales' => [
-                    'xAxes' => [
+                    'x' => [
                         [
                             'stacked' => true
                         ]
                     ],
-                    'yAxes' => [
+                    'y' => [
                         [
                             'stacked' => true
                         ]
@@ -1037,7 +1013,7 @@ class StatisticService
             'options' => [
                 'maintainAspectRatio' => false,
                 'scales' => [
-                    'xAxes' => [
+                    'x' => [
                         [
                             'type' => 'time',
                             'time' => [
@@ -1056,7 +1032,7 @@ class StatisticService
                             ]
                         ]
                     ],
-                    'yAxes' => [
+                    'y' => [
                         [
                             'ticks' => [
                                 'min' => 0,
@@ -1111,7 +1087,7 @@ class StatisticService
             $result['data']['datasets'][1]['data'][$dataKey] = round($value / $evil, 2);
         }
 
-        $result['options']['scales']['yAxes'][0]['scaleLabel']['labelString'] = 'Spieler online/Anzahl Mitglieder';
+        $result['options']['scales']['y']['title']['text'] = 'Spieler online/Anzahl Mitglieder';
 
         return $result;
     }
@@ -1148,7 +1124,7 @@ class StatisticService
             'options' => [
                 'maintainAspectRatio' => false,
                 'scales' => [
-                    'xAxes' => [
+                    'x' => [
                         [
                             'type' => 'time',
                             'time' => [
@@ -1167,7 +1143,7 @@ class StatisticService
                             ]
                         ]
                     ],
-                    'yAxes' => [
+                    'y' => [
                         [
                             'ticks' => [
                                 'min' => 0,

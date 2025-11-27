@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import axios from 'axios';
 import {Line, Doughnut, Bar} from 'react-chartjs-2';
 import { Spinner } from 'react-bootstrap';
@@ -16,15 +16,14 @@ export default class TicketStatistics extends Component {
             options: {
                 'maintainAspectRatio': false,
                 'scales': {
-                    'yAxes': [
-                        {
-                            'ticks': {
-                                min: 0,
-                                suggestedMax: 30,
-                                stepSize: 5
-                            }
+                    'y':
+                    {
+                        min: 0,
+                        suggestedMax: 30,
+                        ticks: {
+                            stepSize: 5
                         }
-                    ]
+                    }
                 }
             }
         };
@@ -161,7 +160,9 @@ for (var index in charts) {
     const component = charts[index];
     if(typeof component === 'object') {
         const props = Object.assign({}, component.dataset);
-        ReactDOM.render(<TicketStatistics {...props} />, component);
+        const root = createRoot(component);
+        root.render(<TicketStatistics {...props} />);
+        // ReactDOM.render(<TicketStatistics {...props} />, component);
     }
 }
 

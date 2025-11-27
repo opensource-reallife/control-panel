@@ -9,5 +9,5 @@ class AchievementFever extends Model
     protected $table = 'achievementFever';
     protected $primaryKey = 'Date';
 
-    protected $dates = ['Date'];
+    protected $casts = ['Date' => 'datetime'];
 }

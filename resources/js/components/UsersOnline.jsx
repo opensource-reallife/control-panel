@@ -1,10 +1,8 @@
 import React, { Component, useState } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import {Button, Modal, Spinner, Form, InputGroup} from 'react-bootstrap';
 import axios from "axios";
 import TicketListEntry from "./tickets/TicketListEntry";
-import {Link} from "react-router-dom";
-
 export default class UsersOnline extends Component {
     constructor() {
         super();
@@ -88,7 +86,9 @@ for (var index in banDialogs) {
     const component = banDialogs[index];
     if(typeof component === 'object') {
         const props = Object.assign({}, component.dataset);
-        ReactDOM.render(<UsersOnline {...props} />, component);
+        const root = createRoot(component);
+        root.render(<UsersOnline {...props} />);
+        // ReactDOM.render(<UsersOnline {...props} />, component);
     }
 }
 

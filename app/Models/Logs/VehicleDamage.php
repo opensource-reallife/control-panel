@@ -16,7 +16,7 @@ class VehicleDamage extends Model
     protected $connection = 'mysql_logs';
     public $timestamps = false;
 
-    protected $dates = ['StartDate', 'Date'];
+    protected $casts = ['StartDate' => 'datetime', 'Date' => 'datetime'];
 
     public function user()
     {

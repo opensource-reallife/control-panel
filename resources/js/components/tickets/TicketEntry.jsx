@@ -1,12 +1,11 @@
 import React, { Component, useState } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import {Button, Modal, Spinner, Form, InputGroup, OverlayTrigger, Tooltip, Row, Col} from 'react-bootstrap';
 import axios from "axios";
 import TicketListEntry from "./TicketListEntry";
 import SelectUserDialog from '../helpers/SelectUserDialog';
 import {
-    Link,
-    useParams
+    Link
 } from "react-router-dom";
 import ConfirmDialog from '../helpers/ConfirmDialog';
 import SelectUserFromListDialog from "../helpers/SelectUserFromListDialog";
@@ -400,7 +399,7 @@ export default class TicketEntry extends Component {
                 <div className="row mb-4">
                     <div className="col-md-12">
                         <span className="h2">{this.state.data.Title}</span>
-                        <Link to="/tickets" className="btn btn-primary float-right">Zurück</Link>
+                        <Link to="../tickets" className="btn btn-primary float-right">Zurück</Link>
                     </div>
                 </div>
                 <div className="row">

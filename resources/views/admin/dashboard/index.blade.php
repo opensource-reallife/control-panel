@@ -124,15 +124,9 @@
 
 
 @section('script')
-    <link href="https://unpkg.com/@coreui/coreui-chartjs@2.0.0-beta.0/dist/css/coreui-chartjs.css" rel="stylesheet">
-    <script src="https://unpkg.com/@coreui/coreui-chartjs@2.0.0-beta.0/dist/js/coreui-chartjs.bundle.js"></script>
     <script>
 
-        Chart.defaults.global.pointHitDetectionRadius = 1;
-        Chart.defaults.global.tooltips.enabled = false;
-        Chart.defaults.global.tooltips.mode = 'index';
-        Chart.defaults.global.tooltips.position = 'nearest';
-        Chart.defaults.global.tooltips.custom = coreui.ChartJS.customTooltips;
+
 
         var ticketData = {!! json_encode($tickets) !!};
 
@@ -156,7 +150,7 @@
                     display: false
                 },
                 scales: {
-                    xAxes: [{
+                    x: [{
                         gridLines: {
                             color: 'transparent',
                             zeroLineColor: 'transparent'
@@ -166,7 +160,7 @@
                             fontColor: 'transparent'
                         }
                     }],
-                    yAxes: [{
+                    y: [{
                         display: false,
                         ticks: {
                             display: false,
@@ -212,7 +206,7 @@
                     display: false
                 },
                 scales: {
-                    xAxes: [{
+                    x: [{
                         gridLines: {
                             color: 'transparent',
                             zeroLineColor: 'transparent'
@@ -222,7 +216,7 @@
                             fontColor: 'transparent'
                         }
                     }],
-                    yAxes: [{
+                    y: [{
                         display: false,
                         ticks: {
                             display: false

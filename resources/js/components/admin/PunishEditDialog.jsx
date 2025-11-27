@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import {Button, Modal, Spinner, Form, InputGroup, Table} from 'react-bootstrap';
 import axios from "axios";
 
@@ -110,9 +110,7 @@ export default class PunishEditDialog extends Component {
                         <Form.Label>Dauer</Form.Label>
                         <InputGroup>
                             <Form.Control name="duration" type="text" placeholder="Dauer" value={this.state.duration} onChange={this.onChange.bind(this)} />
-                            <InputGroup.Append>
-                                <InputGroup.Text>Stunden</InputGroup.Text>
-                            </InputGroup.Append>
+                            <InputGroup.Text>Stunden</InputGroup.Text>
                         </InputGroup>
                         <Form.Text className="text-muted">
                             Falls permanent oder kein Wert einfach den Wert auf 0 lassen.
@@ -180,6 +178,8 @@ for (var index in punish) {
     const component = punish[index];
     if(typeof component === 'object') {
         const props = Object.assign({}, component.dataset);
-        ReactDOM.render(<PunishEditDialog {...props} />, component);
+        const root = createRoot(component);
+        root.render(<PunishEditDialog {...props} />);
+        // ReactDOM.render(<PunishEditDialog {...props} />, component);
     }
 }

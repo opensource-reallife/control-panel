@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import {Button, Modal, Spinner, Form, InputGroup, Table} from 'react-bootstrap';
 import axios from "axios";
 
@@ -169,9 +169,7 @@ export default class WarnsDialog extends Component {
                                 <Form.Label>Dauer</Form.Label>
                                 <InputGroup>
                                     <Form.Control name="duration" type="text" placeholder="Dauer" onChange={this.onChange.bind(this)} />
-                                    <InputGroup.Append>
-                                        <InputGroup.Text>Tagen</InputGroup.Text>
-                                    </InputGroup.Append>
+                                    <InputGroup.Text>Tagen</InputGroup.Text>
                                 </InputGroup>
                             </Form.Group>
 
@@ -217,6 +215,8 @@ for (var index in warns) {
     const component = warns[index];
     if(typeof component === 'object') {
         const props = Object.assign({}, component.dataset);
-        ReactDOM.render(<WarnsDialog {...props} />, component);
+        const root = createRoot(component);
+        root.render(<WarnsDialog {...props} />);
+        //ReactDOM.render(<WarnsDialog {...props} />, component);
     }
 }

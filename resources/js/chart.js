@@ -1,4 +1,4 @@
-showAllTooltipsPlugin = {
+let showAllTooltipsPlugin = {
     beforeRender: function(chart) {
         if (chart.config.options.showAllTooltips) {
             // create an array of tooltips

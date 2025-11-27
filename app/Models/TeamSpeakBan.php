@@ -16,7 +16,7 @@ class TeamSpeakBan extends Model
     public const UPDATED_AT = 'UpdatedAt';
     public const DELETED_AT = 'DeletedAt';
 
-    protected $dates = ['ValidUntil'];
+    protected $casts = ['ValidUntil' => 'datetime'];
 
     public function user()
     {

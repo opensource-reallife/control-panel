@@ -15,7 +15,6 @@
     @endif
 
     <!-- Styles -->
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     @yield('head')
 </head>
 <body class="c-app c-dark-theme">
@@ -23,12 +22,9 @@
         @include('layouts.partials.sidebar')
     @endif
 
-    <div id="app" class="c-wrapper">
+    <div id="app" class="c-wrapper wrapper">
         @if(!request()->exists('minimal'))
             <header class="c-header c-header-light c-header-fixed"> <!--c-header-with-subheader -->
-                <button class="c-header-toggler c-class-toggler d-lg-none mr-auto" type="button" data-target="#sidebar" data-class="c-sidebar-show"><span class="c-header-toggler-icon"></span></button><a class="c-header-brand d-sm-none" href="#"><img class="c-header-brand" src="/images/logo.png" alt="eXo Logo"></a>
-                <button class="c-header-toggler c-class-toggler ml-3 d-md-down-none" type="button" data-target="#sidebar" data-class="c-sidebar-lg-show" responsive="true"><span class="c-header-toggler-icon"></span></button>
-
                 @yield('top-menu')
 
                 <ul class="c-header-nav ml-auto">
@@ -37,7 +33,7 @@
                         <li class="c-header-nav-item px-3"><a class="c-header-nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                     @else
                         <li class="c-header-nav-item dropdown px-3">
-                            <a class="c-header-nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                            <a class="c-header-nav-link" data-coreui-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                                 <div class="c-avatar"><img class="c-avatar-img" src="/images/skins/head/{{ Auth::user()->character->Skin ?? 0 }}.png" alt="{{ Auth::user()->Name }}"></div>
                             </a>
 
@@ -93,9 +89,8 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ mix('js/popper.min.js') }}"></script>
-    <script src="{{ mix('js/vendor.js') }}"></script>
-    <script src="{{ mix('js/app.js') }}" defer></script>
+    @viteReactRefresh
+    @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/js/sentry.min.js'])
     <script>
         @if(auth()->user())
             window.Exo = {
@@ -104,11 +99,13 @@
                 Rank: {{ auth()->user()->Rank }},
                 Env: '{{ env('APP_ENV') }}',
                 PusherKey: '{{ env('PUSHER_APP_KEY') }}'
+                // ReverbKey: '{{ env('REVERB_APP_KEY') }}'
             };
         @else
             window.Exo = {
                 Env: '{{ env('APP_ENV') }}',,
                 PusherKey: '{{ env('PUSHER_APP_KEY') }}'
+                // ReverbKey: '{{ env('REVERB_APP_KEY') }}'
             };
         @endif
     </script>

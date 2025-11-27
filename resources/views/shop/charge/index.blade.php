@@ -27,7 +27,7 @@
             @endif
 
             <div class="row">
-                <div class="col-lg-2 col-md-4 col-sm-6 js-appear-enabled animated fadeIn" data-toggle="appear" data-offset="50" data-class="animated fadeIn">
+                <div class="col-lg-2 col-md-4 col-sm-6 js-appear-enabled animated fadeIn" data-coreui-toggle="appear" data-offset="50" data-class="animated fadeIn">
                     <a class="block block-link-pop" href="{{ route('charge.create', ['paypal']) }}">
                         <img class="img-fluid" src="{{asset('images/payment/paypal.png')}}" alt="">
                         <div class="block-content">
@@ -38,7 +38,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-2 col-md-4 col-sm-6 js-appear-enabled animated fadeIn" data-toggle="appear" data-offset="50" data-class="animated fadeIn">
+                <div class="col-lg-2 col-md-4 col-sm-6 js-appear-enabled animated fadeIn" data-coreui-toggle="appear" data-offset="50" data-class="animated fadeIn">
                     <a class="block block-link-pop" href="{{ route('charge.create', ['klarna']) }}">
                         <img class="img-fluid" src="{{asset('images/payment/klarna.png')}}" alt="">
                         <div class="block-content">
@@ -49,7 +49,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-2 col-md-4 col-sm-6 js-appear-enabled animated fadeIn" data-toggle="appear" data-offset="50" data-class="animated fadeIn">
+                <div class="col-lg-2 col-md-4 col-sm-6 js-appear-enabled animated fadeIn" data-coreui-toggle="appear" data-offset="50" data-class="animated fadeIn">
                     <a class="block block-link-pop" href="{{ route('charge.create', ['paysafecard']) }}">
                         <img class="img-fluid" src="{{asset('images/payment/psc.png')}}" alt="">
                         <div class="block-content">

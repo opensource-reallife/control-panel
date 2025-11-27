@@ -1,13 +1,9 @@
 import React, { Component, useState } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import {Button, Modal, Spinner, Form, InputGroup, OverlayTrigger, Tooltip, Row, Col} from 'react-bootstrap';
 import axios from "axios";
 import TicketListEntry from "./TicketListEntry";
 import SelectUserDialog from '../helpers/SelectUserDialog';
-import {
-    Link,
-    useParams
-} from "react-router-dom";
 import ConfirmDialog from '../helpers/ConfirmDialog';
 import SelectUserFromListDialog from "../helpers/SelectUserFromListDialog";
 import { ToastContainer, toast } from 'react-toastify';

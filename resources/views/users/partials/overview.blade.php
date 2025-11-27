@@ -93,7 +93,7 @@
                 <div class="card-body">
                     <dl class="user-stats">
                         <dt>Gebannt</dt>
-                        <dd>@if($banned === false)<i class="fas fa-times text-green-500"></i>@else @if($banned === 0)<i class="fas fa-check text-red-500"></i>@else{{ (new \DateTime)->setTimestamp($banned)->format('d.m.Y H:i:s') }}@endif @endif</dd>
+                        <dd>@if($banned === false)<i class="fas fa-times text-red-500"></i>@else @if($banned === 0)<i class="fas fa-check text-green-500"></i>@else{{ (new \DateTime)->setTimestamp($banned)->format('d.m.Y H:i:s') }}@endif @endif</dd>
                         <!-- <dt>TeamSpeak Gebannt</dt>
                         <dd>@if($teamSpeakBanned === false)<i class="fas fa-times text-green-500"></i>@else @if($teamSpeakBanned === 0)<i class="fas fa-check text-red-500"></i>@else{{ \Carbon\Carbon::now()->addSeconds($teamSpeakBanned)->format('d.m.Y H:i:s') }}@endif @endif</dd> -->
                     </dl>

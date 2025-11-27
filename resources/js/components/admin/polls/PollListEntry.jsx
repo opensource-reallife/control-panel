@@ -1,7 +1,6 @@
 import React, { Component, useState } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import TicketListEntry from "../../tickets/TicketListEntry";
-import { Beforeunload } from 'react-beforeunload';
 import { Pie, Doughnut } from "react-chartjs-2";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
@@ -18,7 +17,7 @@ export default class PollListEntry extends Component {
                 <td>{this.props.poll.Admin}</td>
                 <td>{this.props.poll.CreatedAt}</td>
                 <td>
-                    <Link to={'/admin/polls/' + this.props.poll.Id} className="btn btn-primary btn-sm">Details</Link>
+                    <Link to={'../admin/polls/' + this.props.poll.Id} className="btn btn-primary btn-sm">Details</Link>
                 </td>
             </tr>
         );

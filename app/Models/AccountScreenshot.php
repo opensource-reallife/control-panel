@@ -10,7 +10,7 @@ class AccountScreenshot extends Model
 {
     protected $primaryKey = 'Id';
     protected $table = "account_screenshot";
-    protected $dates = ['CreatedAt', 'UpdatedAt'];
+    protected $casts = ['CreatedAt' => 'datetime', 'UpdatedAt' => 'datetime'];
     public const CREATED_AT = 'CreatedAt';
     public const UPDATED_AT = 'UpdatedAt';
 

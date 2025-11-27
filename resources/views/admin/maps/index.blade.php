@@ -9,10 +9,10 @@
             <div class="col-12 d-flex justify-content-between align-items-start">
                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link active" id="pills-live-tab" data-toggle="pill" href="#pills-live" role="tab" aria-controls="pills-live" aria-selected="true">{{ __('Live') }}</a>
+                        <a class="nav-link active" id="pills-live-tab" data-coreui-toggle="pill" href="#pills-live" role="tab" aria-controls="pills-live" aria-selected="true">{{ __('Live') }}</a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="pills-dev-tab" data-toggle="pill" href="#pills-dev" role="tab" aria-controls="pills-dev" aria-selected="false">{{ __('Testserver') }}</a>
+                        <a class="nav-link" id="pills-dev-tab" data-coreui-toggle="pill" href="#pills-dev" role="tab" aria-controls="pills-dev" aria-selected="false">{{ __('Testserver') }}</a>
                     </li>
                 </ul>
 

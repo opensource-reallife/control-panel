@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import {Button, Modal, Spinner, Form, InputGroup, Row, Col} from 'react-bootstrap';
 import axios from "axios";
 
@@ -82,9 +82,7 @@ export default class SelectUserDialog extends Component {
                                 <Form.Label>Benutzer:</Form.Label>
                                 <InputGroup>
                                     <Form.Control ref={(input) => { this.nameInput = input; }}  name="name" type="text" placeholder="Spielername" autoComplete="off" autoFocus="on" onChange={this.onChange.bind(this)} />
-                                    <InputGroup.Append>
-                                        <Button onClick={this.search.bind(this)} variant="outline-success">suchen</Button>
-                                    </InputGroup.Append>
+                                    <Button onClick={this.search.bind(this)} variant="outline-success">suchen</Button>
                                 </InputGroup>
                             </Form.Group>
                         </Form>
@@ -121,7 +119,9 @@ for (var index in selectUserDialog) {
     const component = selectUserDialog[index];
     if(typeof component === 'object') {
         const props = Object.assign({}, component.dataset);
-        ReactDOM.render(<SelectUserDialog {...props} />, component);
+        const root = createRoot(component);
+        root.render(<SelectUserDialog {...props} />);
+        // ReactDOM.render(<SelectUserDialog {...props} />, component);
     }
 }
 

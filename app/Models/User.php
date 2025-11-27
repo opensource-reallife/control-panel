@@ -29,7 +29,6 @@ class User extends Authenticatable
     protected $table = 'account';
     protected $primaryKey = 'Id';
     protected $connection = 'mysql';
-    protected $dates = ['LastLogin', 'RegisterDate'];
     public $timestamps = false;
 
     // ALTER TABLE `vrp_account` ADD COLUMN `RememberToken` varchar(100) NULL AFTER `AutologinToken`;
@@ -60,6 +59,8 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'LastLogin' => 'datetime', 
+        'RegisterDate' => 'datetime',
     ];
 
     public function character()

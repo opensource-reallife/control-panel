@@ -10,7 +10,7 @@ class TicketBan extends Model
     const CREATED_AT = 'CreatedAt';
 
     protected $primaryKey = 'Id';
-    protected $dates = ['CreatedAt', 'BannedUntil'];
+    protected $casts = ['CreatedAt' => 'datetime', 'BannedUntil' => 'datetime'];
 
 
     public function user()

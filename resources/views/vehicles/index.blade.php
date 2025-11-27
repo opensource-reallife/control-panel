@@ -23,8 +23,8 @@
                                     <div class="row">
                                         <div class="col-12 d-flex justify-content-between align-items-center">
                                             <span class="card-title h5">{{ $vehicle->Name }}</span>
-                                            <button type="button" class="btn btn-light float-right" data-toggle="tooltip" data-html="true"
-                                                    data-placement="left" data-animation="true" data-original-title="
+                                            <button type="button" class="btn btn-light float-right" data-coreui-toggle="tooltip" data-coreui-html="true"
+                                                    data-coreui-placement="left" data-coreui-animation="true" data-coreui-original-title="
                                                 {{ __('Spielerbesitz: ') }} {{ $vehicle->PlayerOwned }}<br>
                                                 {{ __('Fraktionsbesitz: ') }} {{ $vehicle->FactionOwned }}<br>
                                                 {{ __('Unternehmensbesitz: ') }} {{ $vehicle->CompanyOwned }}<br>
@@ -51,9 +51,11 @@
 
 @section('script')
     <script>
-        document.querySelectorAll('[data-toggle="tooltip"]').forEach(function (element) {
-            // eslint-disable-next-line no-new
-            new coreui.Tooltip(element);
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('[data-coreui-toggle="tooltip"]').forEach(function (element) {
+                // eslint-disable-next-line no-new
+                new coreui.Tooltip(element);
+            })
         });
     </script>
 @endsection

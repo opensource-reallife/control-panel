@@ -15,7 +15,7 @@ class AdminActionOther extends Model
     protected $table = 'AdminActionOther';
     public $timestamps = false;
 
-    protected $dates = ['Date'];
+    protected $casts = ['Date' => 'datetime'];
 
     public function user()
     {

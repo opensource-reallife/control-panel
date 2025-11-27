@@ -1,0 +1,115 @@
+@use "@coreui/coreui/scss/coreui" with (
+  $font-size-base: 0.875rem,
+  $border-radius: 0.25rem,
+  $border-width: 1px,
+  $border-color: hsla(0, 0%, 100%, .15),
+
+  $table-bg: #23242d,
+  $table-color: #e1e1e1,
+  $table-border-color: #181924,
+  $table-hover-color: #e1e1e1,
+  $table-hover-bg-factor: 0.075,
+  $table-hover-bg: rgba(255, 255, 255, 0.1),
+
+  $body-color: #e1e1e1,
+  $body-secondary-color: #768192,
+  $body-bg: #2c2c34,
+
+  $modal-backdrop-bg: #000015,
+
+  $sidebar-brand-bg: rgba(0, 0, 21, .2),
+  $sidebar-bg: #2c2c34,
+  $sidebar-narrow-width: 3.5rem,
+
+  $sidebar-nav-group-bg: rgba(0,0,0,0.2),
+  $sidebar-nav-group-indicator-icon: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='rgba(255, 255, 255, 0.5)' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"),
+  $sidebar-nav-group-indicator-color: white,
+
+  $sidebar-nav-link-hover-bg: #2775c4,
+  $sidebar-nav-link-hover-color: #fff,
+  $sidebar-nav-link-border-radius: 0px,
+  $sidebar-nav-link-active-color: #fff,
+  $sidebar-nav-link-active-bg: hsla(0, 0%, 100%, .05),
+  $sidebar-nav-link-icon-color: hsla(0, 0%, 100%, .6),
+  $sidebar-nav-link-padding-x: 1.1rem,
+  $sidebar-nav-link-padding-y: .8445rem,
+  $sidebar-nav-link-icon-margin: 0.5rem,
+
+  $sidebar-nav-padding-x: 0,
+  $sidebar-nav-padding-y: 0,
+
+  $sidebar-toggler-icon: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='rgba(255, 255, 255, 0.5)' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E")
+);
+  
+  .sidebar-footer {
+    background-color: rgba(0, 0, 21, .2);
+    justify-content: right !important;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, .3);
+
+      .sidebar-toggler::before {
+        mask: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='%23fff' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E") no-repeat center !important;
+
+      }
+    }
+  }
+
+  .sidebar-narrow .nav-icon, .sidebar-nav .nav-icon {
+    flex: 0 0 60px !important;
+  }
+
+  .sidebar-brand {
+    background-color: var(--cui-sidebar-brand-bg, 0);
+    display: flex;
+    flex: 0 0 56px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  // .sidebar.sidebar-narrow .sidebar-nav .nav-icon:first-child  {
+  //   margin-left: -.5em !important;
+  // }
+  
+  .sidebar .sidebar-nav .nav-icon:first-child  {
+    margin-left: -1em !important;
+  }
+
+  .sidebar-nav .nav-group-toggle::after {
+    flex: 0 8px !important;
+    height: 9px !important;
+  }
+
+  .sidebar-nav .nav-link {
+    padding: .8445rem 1.1rem !important;
+  }
+
+  .sidebar-nav .nav-group.show > .nav-group-toggle::after {
+    transform: rotate(-90deg) !important;
+  }
+
+  .form-control:focus {
+    box-shadow: 0 0 0 .2rem rgba(50, 31, 219, .25) !important;
+  }
+
+  tbody tr td {
+    border-bottom-width: 0px !important;
+  }
+
+
+  .wrapper {
+    width: 100%;
+    padding-inline-start: var(--cui-sidebar-occupy-start, 0);
+    will-change: auto;
+    @include coreui.transition(padding .15s);
+
+    > .container-lg {
+      --cui-gutter-x: 3rem;
+    }
+
+    .header button {
+      padding-inline-start: var(--cui-sidebar-occupy-start, 0);
+      will-change: auto;
+      @include coreui.transition(padding .15s);
+    }
+  }

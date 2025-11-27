@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { Button, Modal, Spinner, Form } from 'react-bootstrap';
 import axios from "axios";
 import TicketListEntry from "./TicketListEntry";
@@ -357,7 +357,7 @@ export default class TicketList extends Component {
                         </div>
                         <div className="float-right">
                             <Button variant="secondary" className="mr-2" onClick={this.showSettings.bind(this)}><i className="fas fa-cog"></i></Button>
-                            <Link to="/tickets/create" className="btn btn-primary">Ticket erstellen</Link>
+                            <Link to="../tickets/create" className="btn btn-primary">Ticket erstellen</Link>
                         </div>
                     </div>
                 </div>
@@ -386,9 +386,7 @@ export default class TicketList extends Component {
                         <Form onSubmit={this.search.bind(this)}>
                             <InputGroup>
                                 <Form.Control placeholder="Suchebegriff (Benutzer/Titel/Kategorie)" name="search" value={this.state.search} onChange={this.onChange.bind(this)} />
-                                <InputGroup.Append>
-                                    <Button variant="secondary" onClick={this.search.bind(this)}>Suchen</Button>
-                                </InputGroup.Append>
+                                <Button variant="secondary" onClick={this.search.bind(this)}>Suchen</Button>
                             </InputGroup>
                         </Form>
                     </div>

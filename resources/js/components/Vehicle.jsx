@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { Button, Modal, Spinner, Form } from 'react-bootstrap';
 import axios from "axios";
 
@@ -152,7 +152,9 @@ for (var index in vehicles) {
     const component = vehicles[index];
     if(typeof component === 'object') {
         const props = Object.assign({}, component.dataset);
-        ReactDOM.render(<Vehicle {...props} />, component);
+        const root = createRoot(component);
+        root.render(<Vehicle {...props} />);
+        // ReactDOM.render(<Vehicle {...props} />, component);
     }
 }
 

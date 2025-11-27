@@ -1,10 +1,8 @@
 import React, { Component, useState } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import {Button, Modal, Spinner, Form, InputGroup, Table} from 'react-bootstrap';
 import axios from "axios";
 import TicketListEntry from "../tickets/TicketListEntry";
-import {Link} from "react-router-dom";
-
 export default class PunishHistoryDialog extends Component {
     constructor() {
         super();
@@ -134,6 +132,8 @@ for (var index in punish) {
     const component = punish[index];
     if(typeof component === 'object') {
         const props = Object.assign({}, component.dataset);
-        ReactDOM.render(<PunishHistoryDialog {...props} />, component);
+        const root = createRoot(component);
+        root.render(<PunishHistoryDialog {...props} />);
+        // ReactDOM.render(<PunishHistoryDialog {...props} />, component);
     }
 }

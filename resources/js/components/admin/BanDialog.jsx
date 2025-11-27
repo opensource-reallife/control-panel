@@ -1,8 +1,7 @@
 import React, { Component, useState } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import {Button, Modal, Spinner, Form, InputGroup} from 'react-bootstrap';
 import axios from "axios";
-
 export default class BanDialog extends Component {
     constructor() {
         super();
@@ -73,9 +72,7 @@ export default class BanDialog extends Component {
                                 <Form.Label>Dauer</Form.Label>
                                 <InputGroup>
                                     <Form.Control name="duration" type="text" placeholder="Dauer" onChange={this.onChange.bind(this)} />
-                                    <InputGroup.Append>
-                                        <InputGroup.Text>Stunden</InputGroup.Text>
-                                    </InputGroup.Append>
+                                    <InputGroup.Text>Stunden</InputGroup.Text>
                                 </InputGroup>
                                 <Form.Text className="text-muted">
                                     Um einen Spieler permanent zu sperren die Dauer "0" verwenden.
@@ -124,7 +121,9 @@ for (var index in banDialogs) {
     const component = banDialogs[index];
     if(typeof component === 'object') {
         const props = Object.assign({}, component.dataset);
-        ReactDOM.render(<BanDialog {...props} />, component);
+        const root = createRoot(component);
+        root.render(<BanDialog {...props} />);
+        // ReactDOM.render(<BanDialog {...props} />, component);
     }
 }
 

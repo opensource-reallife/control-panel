@@ -9,7 +9,7 @@ class PlayerHistory extends Model
 {
     protected $primaryKey = 'Id';
     protected $table = 'player_history';
-    protected $dates = ['JoinDate', 'LeaveDate'];
+    protected $casts = ['JoinDate' => 'datetime', 'LeaveDate' => 'datetime'];
 
     public function element()
     {

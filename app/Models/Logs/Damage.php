@@ -12,7 +12,7 @@ class Damage extends Model
     protected $connection = 'mysql_logs';
     public $timestamps = false;
 
-    protected $dates = ['StartTime', 'Date'];
+    protected $casts = ['StartTime' => 'datetime', 'Date' => 'datetime'];
 
     public function user()
     {

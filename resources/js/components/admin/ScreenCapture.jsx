@@ -1,15 +1,5 @@
-import React, { Component, useState } from 'react';
-import ReactDOM from 'react-dom';
-import { Button, Modal, Spinner, Form } from 'react-bootstrap';
-import axios from "axios";
-import TicketListEntry from "../tickets/TicketListEntry";
-import {Link} from "react-router-dom";
-import {element} from "prop-types";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import InputGroup from "react-bootstrap/InputGroup";
-import BanDialog from "./BanDialog";
-
+import { Component } from 'react';
+import { createRoot } from 'react-dom/client';
 export default class ScreenCapture extends Component {
     constructor() {
         super();
@@ -41,6 +31,8 @@ for (var index in banDialogs) {
     const component = banDialogs[index];
     if(typeof component === 'object') {
         const props = Object.assign({}, component.dataset);
-        ReactDOM.render(<ScreenCapture {...props} />, component);
+        const root = createRoot(component);
+        root.render(<ScreenCapture {...props} />);
+        // ReactDOM.render(<ScreenCapture {...props} />, component);
     }
 }

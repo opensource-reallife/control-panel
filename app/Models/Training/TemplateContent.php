@@ -20,10 +20,10 @@ class TemplateContent extends Model implements Auditable
     public const UPDATED_AT = 'UpdatedAt';
     public const DELETED_AT = 'DeletedAt';
 
-    protected $dates = [
-        'CreatedAt',
-        'UpdatedAt',
-        'CreatedAt',
+    protected $casts    = [
+        'CreatedAt' => 'datetime',
+        'UpdatedAt' => 'datetime',
+        'DeletedAt' => 'datetime',
     ];
 
     public function user()

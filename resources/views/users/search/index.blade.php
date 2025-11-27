@@ -55,10 +55,10 @@
                                     <td>
                                         @if($user->isBanned() !== false)
                                             <i class="fas fa-gamepad text-danger"
-                                               data-toggle="tooltip"
-                                               data-placement="right"
-                                               data-animation="true"
-                                               data-original-title="@if($user->isBanned() === 0){{ 'Permanent' }}@else{{ \Carbon\Carbon::now()->setTimestamp($user->isBanned())->format('d.m.Y H:i:s') }}@endif">
+                                               data-coreui-toggle="tooltip"
+                                               data-coreui-placement="right"
+                                               data-coreui-animation="true"
+                                               data-coreui-original-title="@if($user->isBanned() === 0){{ 'Permanent' }}@else{{ \Carbon\Carbon::now()->setTimestamp($user->isBanned())->format('d.m.Y H:i:s') }}@endif">
                                             </i>
                                         @else
                                             <i class="fas fa-gamepad text-success"></i>
@@ -72,20 +72,20 @@
                                     <td>
                                         @if(!isset($user->ipHub))
                                             <i class="fas fa-network-wired text-muted"
-                                               data-toggle="tooltip"
-                                               data-trigger="hover focus click"
-                                               data-placement="right"
-                                               data-animation="true"
-                                               data-original-title="Es existieren noch keine Informationen zu dieser IP.">
+                                               data-coreui-toggle="tooltip"
+                                               data-coreui-trigger="hover focus click"
+                                               data-coreui-placement="right"
+                                               data-coreui-animation="true"
+                                               data-coreui-original-title="Es existieren noch keine Informationen zu dieser IP.">
                                             </i>
                                         @else
                                             <i class="fas fa-network-wired @if($user->ipHub->Block === 0){{ 'text-success' }}@elseif($user->ipHub->Block === 1){{ 'text-danger' }}@else{{ 'text-warning' }}@endif"
-                                               data-toggle="tooltip"
-                                               data-trigger="hover focus click"
-                                               data-placement="right"
-                                               data-animation="true"
-                                               data-html="true"
-                                               data-original-title="Typ: {{ ($user->ipHub->Block === 0 ? 'Residential or business IP' : ($user->ipHub->Block === 1 ? 'Non-residential IP (hosting provider, proxy, etc.)' : 'Non-residential & residential IP (warning, may flag innocent people)')) }}<br>Hostname: {{ $user->ipHub->Hostname }}<br>ISP: {{ $user->ipHub->ISP }}<br>ASN: {{ $user->ipHub->ASN }}<br>Land: {{ $user->ipHub->CountryName }}">
+                                               data-coreui-toggle="tooltip"
+                                               data-coreui-trigger="hover focus click"
+                                               data-coreui-placement="right"
+                                               data-coreui-animation="true"
+                                               data-coreui-html="true"
+                                               data-coreui-original-title="Typ: {{ ($user->ipHub->Block === 0 ? 'Residential or business IP' : ($user->ipHub->Block === 1 ? 'Non-residential IP (hosting provider, proxy, etc.)' : 'Non-residential & residential IP (warning, may flag innocent people)')) }}<br>Hostname: {{ $user->ipHub->Hostname }}<br>ISP: {{ $user->ipHub->ISP }}<br>ASN: {{ $user->ipHub->ASN }}<br>Land: {{ $user->ipHub->CountryName }}">
                                             </i>
                                         @endif
                                         {{ $user->LastIP }}
@@ -109,7 +109,7 @@
 @section('script')
     @if(auth()->user()->Rank >= 3)
     <script>
-        document.querySelectorAll('[data-toggle="tooltip"]').forEach(function (element) {
+        document.querySelectorAll('[data-coreui-toggle="tooltip"]').forEach(function (element) {
             // eslint-disable-next-line no-new
             new coreui.Tooltip(element);
         });

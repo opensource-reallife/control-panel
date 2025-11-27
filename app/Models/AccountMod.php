@@ -9,6 +9,6 @@ use Illuminate\Support\Facades\DB;
 class AccountMod extends Model
 {
     protected $table = "account_mods";
-    protected $dates = ['CreatedAt', 'LastSeenAt'];
+    protected $casts = ['CreatedAt' => 'datetime', 'LastSeenAt' => 'datetime'];
 }
 

@@ -13,7 +13,7 @@ class Poll extends Model
     protected $table = 'admin_poll';
     public const CREATED_AT = 'CreatedAt';
     public const UPDATED_AT = 'UpdatedAt';
-    protected $dates = ['CreatedAt', 'UpdatedAt', 'FinishedAt'];
+    protected $casts = ['CreatedAt' => 'datetime', 'UpdatedAt' => 'datetime', 'FinishedAt' => 'datetime'];
 
     public function user()
     {

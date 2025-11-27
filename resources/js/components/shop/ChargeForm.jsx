@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import {Button, Modal, Spinner, Form, InputGroup} from 'react-bootstrap';
 import axios from "axios";
 
@@ -60,7 +60,9 @@ for (var index in chargeForms) {
     const component = chargeForms[index];
     if(typeof component === 'object') {
         const props = Object.assign({}, component.dataset);
-        ReactDOM.render(<ChargeForm {...props} />, component);
+        const root = createRoot(component);
+        root.render(<ChargeForm {...props} />);
+        // ReactDOM.render(<ChargeForm {...props} />, component);
     }
 }
 

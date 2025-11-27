@@ -9,7 +9,7 @@ class Texture extends Model
     protected $primaryKey = 'Id';
     protected $table = 'textureshop';
     public $timestamps = false;
-    protected $dates = ['Date'];
+    protected $casts = ['Date' => 'datetime'];
 
     public function getStatus()
     {

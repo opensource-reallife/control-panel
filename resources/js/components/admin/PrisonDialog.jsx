@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import {Button, Modal, Spinner, Form, InputGroup} from 'react-bootstrap';
 import axios from "axios";
 
@@ -73,9 +73,7 @@ export default class PrisonDialog extends Component {
                                 <Form.Label>Dauer</Form.Label>
                                 <InputGroup>
                                     <Form.Control name="duration" type="text" placeholder="Dauer" onChange={this.onChange.bind(this)} />
-                                    <InputGroup.Append>
-                                        <InputGroup.Text>Minuten</InputGroup.Text>
-                                    </InputGroup.Append>
+                                    <InputGroup.Text>Minuten</InputGroup.Text>
                                 </InputGroup>
                             </Form.Group>
 
@@ -121,7 +119,9 @@ for (var index in prisonDialogs) {
     const component = prisonDialogs[index];
     if(typeof component === 'object') {
         const props = Object.assign({}, component.dataset);
-        ReactDOM.render(<PrisonDialog {...props} />, component);
+        const root = createRoot(component);
+        root.render(<PrisonDialog {...props} />);
+        // ReactDOM.render(<PrisonDialog {...props} />, component);
     }
 }
 

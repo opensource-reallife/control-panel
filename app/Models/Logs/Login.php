@@ -13,7 +13,7 @@ class Login extends Model
     protected $connection = 'mysql_logs';
     public $timestamps = false;
 
-    protected $dates = ['Date'];
+    protected $casts = ['Date' => 'datetime'];
 
     public function user()
     {

@@ -15,7 +15,7 @@ class Action extends Model
     protected $table = 'Actions';
     public $timestamps = false;
 
-    protected $dates = ['Date'];
+    protected $casts = ['Date' => 'datetime'];
 
     public function user()
     {
