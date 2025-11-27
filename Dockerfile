@@ -90,8 +90,7 @@ COPY --chown=app:app . /var/www
 USER 1000
 
 RUN php84 artisan storage:link && \
-    php84 artisan cache:clear && \
-    rm public/js/app.js.map
+    php84 artisan cache:clear &&
 
 USER 0
 
