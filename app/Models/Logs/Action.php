@@ -25,7 +25,7 @@ class Action extends Model
     public function getGroupName()
     {
         if($this->GroupType === 'faction') {
-            $faction = Company::find($this->GroupId);
+            $faction = Faction::find($this->GroupId);
 
             if($faction) {
                 return 'Fraktion: ' . $faction->Name;

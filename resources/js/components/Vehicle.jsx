@@ -44,7 +44,7 @@ export default class Vehicle extends Component {
             let map = <></>;
 
             if(this.state.data.PosX) {
-                map = <img src={'https://cp.openreallife.net/images/map.php?x=' + this.state.data.PosX + '&y=' + this.state.data.PosY + '&height=180&width=200'} />
+                map = <img src={'https://ingame.openreallife.net/images/map.php?x=' + this.state.data.PosX + '&y=' + this.state.data.PosY + '&height=180&width=200'} />
             }
 
             if(this.state.data.Tunings) {
