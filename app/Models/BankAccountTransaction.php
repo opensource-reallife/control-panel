@@ -19,7 +19,7 @@ class BankAccountTransaction extends Model
         } else if ($this->FromType === 3) {
             return Company::find($this->FromId)->Name;
         } else if ($this->FromType === 4) {
-            return 'Adminkasse';
+            return 'Adminkasse:';
         } else if ($this->FromType === 5) {
             return 'Serverkasse: ' . ServerBankAccount::find($this->FromId)->Name;
         } else if ($this->FromType === 6) {
