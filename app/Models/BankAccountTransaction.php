@@ -8,7 +8,7 @@ class BankAccountTransaction extends Model
 {
     protected $primaryKey = 'Id';
     // protected $connection = 'mysql_logs';
-    protected $table = 'view_MoneyLog';
+    protected $table = 'moneynew';
 
     public function getFromName()
     {
