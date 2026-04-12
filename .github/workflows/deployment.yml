@@ -57,4 +57,4 @@ jobs:
       -
         name: Deploy to production
         run: |
-          curl http://${{ secrets.DEPLOYRON_IP }}:6001/deploy/cp_production?APISecret=${{ secrets.DEPLOY_API_SECRET_PRODUCTION }}
+          curl http://${{ secrets.DEPLOYRON_IP }}:6000/deploy/cp_production?APISecret=${{ secrets.DEPLOY_API_SECRET_PRODUCTION }}
